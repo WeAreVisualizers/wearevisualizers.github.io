@@ -2,6 +2,8 @@
 .Rhistory
 .RData
 *.Rproj
+*.sublime.project
+
 
 .DS_Store
 .AppleDouble
