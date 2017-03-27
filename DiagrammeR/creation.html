@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The DiagrammeR Package</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Contains information on how to use the DiagrammeR package for R.">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The DiagrammeR Package" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Contains information on how to use the DiagrammeR package for R." />
+  <meta name="github-repo" content="rich-iannone/DiagrammeR-docs" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The DiagrammeR Package" />
+  <meta name="twitter:site" content="@riannone" />
+  <meta name="twitter:description" content="Contains information on how to use the DiagrammeR package for R." />
+  
+
+<meta name="author" content="Richard Iannone">
+
+
+<meta name="date" content="2017-03-26">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="attrs.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-0.9.1/grViz.js"></script>
+<link href="libs/vis-4.17.0/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.17.0/vis.min.js"></script>
+<script src="libs/visNetwork-binding-1.0.3/visNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="dgr-docs.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">The DiagrammeR Package</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>This book is not yet finished</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#why-model-data-as-a-graph"><i class="fa fa-check"></i><b>1.1</b> Why Model Data as a Graph?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#the-diagrammer-graph-object"><i class="fa fa-check"></i><b>1.2</b> The DiagrammeR Graph Object</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="creation.html"><a href="creation.html"><i class="fa fa-check"></i><b>2</b> Graph Creation</a><ul>
+<li class="chapter" data-level="2.1" data-path="creation.html"><a href="creation.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="2.2" data-path="creation.html"><a href="creation.html#visualizing-a-simple-graph"><i class="fa fa-check"></i><b>2.2</b> Visualizing a Simple Graph</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="creation.html"><a href="creation.html#creating-nodes"><i class="fa fa-check"></i><b>2.2.1</b> Creating Nodes</a></li>
+<li class="chapter" data-level="2.2.2" data-path="creation.html"><a href="creation.html#viewing-the-graph"><i class="fa fa-check"></i><b>2.2.2</b> Viewing the Graph</a></li>
+<li class="chapter" data-level="2.2.3" data-path="creation.html"><a href="creation.html#piping-has-its-advantages"><i class="fa fa-check"></i><b>2.2.3</b> Piping Has Its Advantages</a></li>
+<li class="chapter" data-level="2.2.4" data-path="creation.html"><a href="creation.html#adding-edges"><i class="fa fa-check"></i><b>2.2.4</b> Adding Edges</a></li>
+<li class="chapter" data-level="2.2.5" data-path="creation.html"><a href="creation.html#deleting-graph-elements"><i class="fa fa-check"></i><b>2.2.5</b> Deleting Graph Elements</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="creation.html"><a href="creation.html#using-data-frames"><i class="fa fa-check"></i><b>2.3</b> Using Data Frames</a></li>
+<li class="chapter" data-level="2.4" data-path="creation.html"><a href="creation.html#adding-basic-attributes"><i class="fa fa-check"></i><b>2.4</b> Adding Basic Attributes</a></li>
+<li class="chapter" data-level="2.5" data-path="creation.html"><a href="creation.html#the-internal-ndfedf"><i class="fa fa-check"></i><b>2.5</b> The Internal NDF/EDF</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="attrs.html"><a href="attrs.html"><i class="fa fa-check"></i><b>3</b> Graph Attributes</a><ul>
+<li class="chapter" data-level="3.1" data-path="attrs.html"><a href="attrs.html#external-ndfs-and-edfs"><i class="fa fa-check"></i><b>3.1</b> External NDFs and EDFs</a></li>
+<li class="chapter" data-level="3.2" data-path="attrs.html"><a href="attrs.html#internal-ndfs-and-edfs"><i class="fa fa-check"></i><b>3.2</b> Internal NDFs and EDFs</a></li>
+<li class="chapter" data-level="3.3" data-path="attrs.html"><a href="attrs.html#specific-nodes-or-edges"><i class="fa fa-check"></i><b>3.3</b> Specific Nodes or Edges</a></li>
+<li class="chapter" data-level="3.4" data-path="attrs.html"><a href="attrs.html#adding-attributes-to-selections"><i class="fa fa-check"></i><b>3.4</b> Adding Attributes to Selections</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="selections.html"><a href="selections.html"><i class="fa fa-check"></i><b>4</b> Selections</a><ul>
+<li class="chapter" data-level="4.1" data-path="selections.html"><a href="selections.html#setup-for-this-chapter"><i class="fa fa-check"></i><b>4.1</b> Setup for this Chapter</a></li>
+<li class="chapter" data-level="4.2" data-path="selections.html"><a href="selections.html#the-selection-functions"><i class="fa fa-check"></i><b>4.2</b> The Selection Functions</a></li>
+<li class="chapter" data-level="4.3" data-path="selections.html"><a href="selections.html#creating-a-node-selection"><i class="fa fa-check"></i><b>4.3</b> Creating a Node Selection</a></li>
+<li class="chapter" data-level="4.4" data-path="selections.html"><a href="selections.html#creating-an-edge-selection"><i class="fa fa-check"></i><b>4.4</b> Creating an Edge Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="fcns-creation.html"><a href="fcns-creation.html"><i class="fa fa-check"></i><b>5</b> Functions: Creation, I/O</a><ul>
+<li class="chapter" data-level="5.1" data-path="fcns-creation.html"><a href="fcns-creation.html#create_node_df"><i class="fa fa-check"></i><b>5.1</b> <code>create_node_df()</code></a></li>
+<li class="chapter" data-level="5.2" data-path="fcns-creation.html"><a href="fcns-creation.html#create_edge_df"><i class="fa fa-check"></i><b>5.2</b> <code>create_edge_df()</code></a></li>
+<li class="chapter" data-level="5.3" data-path="fcns-creation.html"><a href="fcns-creation.html#combine_ndfs"><i class="fa fa-check"></i><b>5.3</b> <code>combine_ndfs()</code></a></li>
+<li class="chapter" data-level="5.4" data-path="fcns-creation.html"><a href="fcns-creation.html#combine_edfs"><i class="fa fa-check"></i><b>5.4</b> <code>combine_edfs()</code></a></li>
+<li class="chapter" data-level="5.5" data-path="fcns-creation.html"><a href="fcns-creation.html#create_graph"><i class="fa fa-check"></i><b>5.5</b> <code>create_graph()</code></a></li>
+<li class="chapter" data-level="5.6" data-path="fcns-creation.html"><a href="fcns-creation.html#create_random_graph"><i class="fa fa-check"></i><b>5.6</b> <code>create_random_graph()</code></a></li>
+<li class="chapter" data-level="5.7" data-path="fcns-creation.html"><a href="fcns-creation.html#combine_graphs"><i class="fa fa-check"></i><b>5.7</b> <code>combine_graphs()</code></a></li>
+<li class="chapter" data-level="5.8" data-path="fcns-creation.html"><a href="fcns-creation.html#import_graph"><i class="fa fa-check"></i><b>5.8</b> <code>import_graph()</code></a></li>
+<li class="chapter" data-level="5.9" data-path="fcns-creation.html"><a href="fcns-creation.html#from_adj_matrix"><i class="fa fa-check"></i><b>5.9</b> <code>from_adj_matrix()</code></a></li>
+<li class="chapter" data-level="5.10" data-path="fcns-creation.html"><a href="fcns-creation.html#from_igraph"><i class="fa fa-check"></i><b>5.10</b> <code>from_igraph()</code></a></li>
+<li class="chapter" data-level="5.11" data-path="fcns-creation.html"><a href="fcns-creation.html#to_igraph"><i class="fa fa-check"></i><b>5.11</b> <code>to_igraph()</code></a></li>
+<li class="chapter" data-level="5.12" data-path="fcns-creation.html"><a href="fcns-creation.html#render_graph"><i class="fa fa-check"></i><b>5.12</b> <code>render_graph()</code></a></li>
+<li class="chapter" data-level="5.13" data-path="fcns-creation.html"><a href="fcns-creation.html#export_graph"><i class="fa fa-check"></i><b>5.13</b> <code>export_graph()</code></a></li>
+<li class="chapter" data-level="5.14" data-path="fcns-creation.html"><a href="fcns-creation.html#export_csv"><i class="fa fa-check"></i><b>5.14</b> <code>export_csv()</code></a></li>
+<li class="chapter" data-level="5.15" data-path="fcns-creation.html"><a href="fcns-creation.html#save_graph"><i class="fa fa-check"></i><b>5.15</b> <code>save_graph()</code></a></li>
+<li class="chapter" data-level="5.16" data-path="fcns-creation.html"><a href="fcns-creation.html#open_graph"><i class="fa fa-check"></i><b>5.16</b> <code>open_graph()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="fcns-selection.html"><a href="fcns-selection.html"><i class="fa fa-check"></i><b>6</b> Functions: Selection</a><ul>
+<li class="chapter" data-level="6.1" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes"><i class="fa fa-check"></i><b>6.1</b> <code>select_nodes()</code></a></li>
+<li class="chapter" data-level="6.2" data-path="fcns-selection.html"><a href="fcns-selection.html#select_edges"><i class="fa fa-check"></i><b>6.2</b> <code>select_edges()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="fcns-selection.html"><a href="fcns-selection.html#select_last_nodes_created"><i class="fa fa-check"></i><b>6.3</b> <code>select_last_nodes_created()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="fcns-selection.html"><a href="fcns-selection.html#select_last_edges_created"><i class="fa fa-check"></i><b>6.4</b> <code>select_last_edges_created()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes_by_id"><i class="fa fa-check"></i><b>6.5</b> <code>select_nodes_by_id()</code></a></li>
+<li class="chapter" data-level="6.6" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes_in_neighborhood"><i class="fa fa-check"></i><b>6.6</b> <code>select_nodes_in_neighborhood()</code></a></li>
+<li class="chapter" data-level="6.7" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes_by_degree"><i class="fa fa-check"></i><b>6.7</b> <code>select_nodes_by_degree()</code></a></li>
+<li class="chapter" data-level="6.8" data-path="fcns-selection.html"><a href="fcns-selection.html#select_edges_by_edge_id"><i class="fa fa-check"></i><b>6.8</b> <code>select_edges_by_edge_id()</code></a></li>
+<li class="chapter" data-level="6.9" data-path="fcns-selection.html"><a href="fcns-selection.html#select_edges_by_node_id"><i class="fa fa-check"></i><b>6.9</b> <code>select_edges_by_node_id()</code></a></li>
+<li class="chapter" data-level="6.10" data-path="fcns-selection.html"><a href="fcns-selection.html#invert_selection"><i class="fa fa-check"></i><b>6.10</b> <code>invert_selection()</code></a></li>
+<li class="chapter" data-level="6.11" data-path="fcns-selection.html"><a href="fcns-selection.html#clear_selection"><i class="fa fa-check"></i><b>6.11</b> <code>clear_selection()</code></a></li>
+<li class="chapter" data-level="6.12" data-path="fcns-selection.html"><a href="fcns-selection.html#get_selection"><i class="fa fa-check"></i><b>6.12</b> <code>get_selection()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fcns-traversals.html"><a href="fcns-traversals.html"><i class="fa fa-check"></i><b>7</b> Functions: Traversals</a><ul>
+<li class="chapter" data-level="7.1" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_out"><i class="fa fa-check"></i><b>7.1</b> <code>trav_out()</code></a></li>
+<li class="chapter" data-level="7.2" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_in"><i class="fa fa-check"></i><b>7.2</b> <code>trav_in()</code></a></li>
+<li class="chapter" data-level="7.3" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_both"><i class="fa fa-check"></i><b>7.3</b> <code>trav_both()</code></a></li>
+<li class="chapter" data-level="7.4" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_out_edge"><i class="fa fa-check"></i><b>7.4</b> <code>trav_out_edge()</code></a></li>
+<li class="chapter" data-level="7.5" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_in_edge"><i class="fa fa-check"></i><b>7.5</b> <code>trav_in_edge()</code></a></li>
+<li class="chapter" data-level="7.6" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_both_edge"><i class="fa fa-check"></i><b>7.6</b> <code>trav_both_edge()</code></a></li>
+<li class="chapter" data-level="7.7" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_out_node"><i class="fa fa-check"></i><b>7.7</b> <code>trav_out_node()</code></a></li>
+<li class="chapter" data-level="7.8" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_in_node"><i class="fa fa-check"></i><b>7.8</b> <code>trav_in_node()</code></a></li>
+<li class="chapter" data-level="7.9" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_reverse_edge"><i class="fa fa-check"></i><b>7.9</b> <code>trav_reverse_edge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fcns-inspection.html"><a href="fcns-inspection.html"><i class="fa fa-check"></i><b>8</b> Functions: Inspection</a><ul>
+<li class="chapter" data-level="8.1" data-path="fcns-inspection.html"><a href="fcns-inspection.html#node_info"><i class="fa fa-check"></i><b>8.1</b> <code>node_info()</code></a></li>
+<li class="chapter" data-level="8.2" data-path="fcns-inspection.html"><a href="fcns-inspection.html#edge_info"><i class="fa fa-check"></i><b>8.2</b> <code>edge_info()</code></a></li>
+<li class="chapter" data-level="8.3" data-path="fcns-inspection.html"><a href="fcns-inspection.html#graph_info"><i class="fa fa-check"></i><b>8.3</b> <code>graph_info()</code></a></li>
+<li class="chapter" data-level="8.4" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_node_ids"><i class="fa fa-check"></i><b>8.4</b> <code>get_node_ids()</code></a></li>
+<li class="chapter" data-level="8.5" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_edge_ids"><i class="fa fa-check"></i><b>8.5</b> <code>get_edge_ids()</code></a></li>
+<li class="chapter" data-level="8.6" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_edges"><i class="fa fa-check"></i><b>8.6</b> <code>get_edges()</code></a></li>
+<li class="chapter" data-level="8.7" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_predecessors"><i class="fa fa-check"></i><b>8.7</b> <code>get_predecessors()</code></a></li>
+<li class="chapter" data-level="8.8" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_successors"><i class="fa fa-check"></i><b>8.8</b> <code>get_successors()</code></a></li>
+<li class="chapter" data-level="8.9" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_node_df"><i class="fa fa-check"></i><b>8.9</b> <code>get_node_df()</code></a></li>
+<li class="chapter" data-level="8.10" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_edge_df"><i class="fa fa-check"></i><b>8.10</b> <code>get_edge_df()</code></a></li>
+<li class="chapter" data-level="8.11" data-path="fcns-inspection.html"><a href="fcns-inspection.html#node_count"><i class="fa fa-check"></i><b>8.11</b> <code>node_count()</code></a></li>
+<li class="chapter" data-level="8.12" data-path="fcns-inspection.html"><a href="fcns-inspection.html#edge_count"><i class="fa fa-check"></i><b>8.12</b> <code>edge_count()</code></a></li>
+<li class="chapter" data-level="8.13" data-path="fcns-inspection.html"><a href="fcns-inspection.html#node_present"><i class="fa fa-check"></i><b>8.13</b> <code>node_present()</code></a></li>
+<li class="chapter" data-level="8.14" data-path="fcns-inspection.html"><a href="fcns-inspection.html#edge_present"><i class="fa fa-check"></i><b>8.14</b> <code>edge_present()</code></a></li>
+<li class="chapter" data-level="8.15" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_graph_empty"><i class="fa fa-check"></i><b>8.15</b> <code>is_graph_empty()</code></a></li>
+<li class="chapter" data-level="8.16" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_graph_directed"><i class="fa fa-check"></i><b>8.16</b> <code>is_graph_directed()</code></a></li>
+<li class="chapter" data-level="8.17" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_graph_connected"><i class="fa fa-check"></i><b>8.17</b> <code>is_graph_connected()</code></a></li>
+<li class="chapter" data-level="8.18" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_property_graph"><i class="fa fa-check"></i><b>8.18</b> <code>is_property_graph()</code></a></li>
+<li class="chapter" data-level="8.19" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_in"><i class="fa fa-check"></i><b>8.19</b> <code>get_degree_in()</code></a></li>
+<li class="chapter" data-level="8.20" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_out"><i class="fa fa-check"></i><b>8.20</b> <code>get_degree_out()</code></a></li>
+<li class="chapter" data-level="8.21" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_total"><i class="fa fa-check"></i><b>8.21</b> <code>get_degree_total()</code></a></li>
+<li class="chapter" data-level="8.22" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_histogram"><i class="fa fa-check"></i><b>8.22</b> <code>get_degree_histogram()</code></a></li>
+<li class="chapter" data-level="8.23" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_distribution"><i class="fa fa-check"></i><b>8.23</b> <code>get_degree_distribution()</code></a></li>
+<li class="chapter" data-level="8.24" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_graph_diameter"><i class="fa fa-check"></i><b>8.24</b> <code>get_graph_diameter()</code></a></li>
+<li class="chapter" data-level="8.25" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_constraint"><i class="fa fa-check"></i><b>8.25</b> <code>get_constraint()</code></a></li>
+<li class="chapter" data-level="8.26" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_betweenness"><i class="fa fa-check"></i><b>8.26</b> <code>get_betweenness()</code></a></li>
+<li class="chapter" data-level="8.27" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_closeness"><i class="fa fa-check"></i><b>8.27</b> <code>get_closeness()</code></a></li>
+<li class="chapter" data-level="8.28" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_bridging"><i class="fa fa-check"></i><b>8.28</b> <code>get_bridging()</code></a></li>
+<li class="chapter" data-level="8.29" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_eccentricity"><i class="fa fa-check"></i><b>8.29</b> <code>get_eccentricity()</code></a></li>
+<li class="chapter" data-level="8.30" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_jaccard_similarity"><i class="fa fa-check"></i><b>8.30</b> <code>get_jaccard_similarity()</code></a></li>
+<li class="chapter" data-level="8.31" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_dice_similarity"><i class="fa fa-check"></i><b>8.31</b> <code>get_dice_similarity()</code></a></li>
+<li class="chapter" data-level="8.32" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_periphery"><i class="fa fa-check"></i><b>8.32</b> <code>get_periphery()</code></a></li>
+<li class="chapter" data-level="8.33" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_walktrap"><i class="fa fa-check"></i><b>8.33</b> <code>get_cmty_walktrap()</code></a></li>
+<li class="chapter" data-level="8.34" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_louvain"><i class="fa fa-check"></i><b>8.34</b> <code>get_cmty_louvain()</code></a></li>
+<li class="chapter" data-level="8.35" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_l_eigenvector"><i class="fa fa-check"></i><b>8.35</b> <code>get_cmty_l_eigenvector()</code></a></li>
+<li class="chapter" data-level="8.36" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_fast_greedy"><i class="fa fa-check"></i><b>8.36</b> <code>get_cmty_fast_greedy()</code></a></li>
+<li class="chapter" data-level="8.37" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_edge_btwns"><i class="fa fa-check"></i><b>8.37</b> <code>get_cmty_edge_btwns()</code></a></li>
+<li class="chapter" data-level="8.38" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_nbrs"><i class="fa fa-check"></i><b>8.38</b> <code>get_nbrs()</code></a></li>
+<li class="chapter" data-level="8.39" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_non_nbrs"><i class="fa fa-check"></i><b>8.39</b> <code>get_non_nbrs()</code></a></li>
+<li class="chapter" data-level="8.40" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_common_neighbors"><i class="fa fa-check"></i><b>8.40</b> <code>get_common_neighbors()</code></a></li>
+<li class="chapter" data-level="8.41" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_similar_nbrs"><i class="fa fa-check"></i><b>8.41</b> <code>get_similar_nbrs()</code></a></li>
+<li class="chapter" data-level="8.42" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_paths"><i class="fa fa-check"></i><b>8.42</b> <code>get_paths()</code></a></li>
+<li class="chapter" data-level="8.43" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_w_connected_cmpts"><i class="fa fa-check"></i><b>8.43</b> <code>get_w_connected_cmpts()</code></a></li>
+<li class="chapter" data-level="8.44" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_s_connected_cmpts"><i class="fa fa-check"></i><b>8.44</b> <code>get_s_connected_cmpts()</code></a></li>
+<li class="chapter" data-level="8.45" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_articulation_points"><i class="fa fa-check"></i><b>8.45</b> <code>get_articulation_points()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="fcns-modification.html"><a href="fcns-modification.html"><i class="fa fa-check"></i><b>9</b> Functions: Modification</a><ul>
+<li class="chapter" data-level="9.1" data-path="fcns-modification.html"><a href="fcns-modification.html#add_node"><i class="fa fa-check"></i><b>9.1</b> <code>add_node()</code></a></li>
+<li class="chapter" data-level="9.2" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edge"><i class="fa fa-check"></i><b>9.2</b> <code>add_edge()</code></a></li>
+<li class="chapter" data-level="9.3" data-path="fcns-modification.html"><a href="fcns-modification.html#add_node_df"><i class="fa fa-check"></i><b>9.3</b> <code>add_node_df()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edge_df"><i class="fa fa-check"></i><b>9.4</b> <code>add_edge_df()</code></a></li>
+<li class="chapter" data-level="9.5" data-path="fcns-modification.html"><a href="fcns-modification.html#add_n_nodes"><i class="fa fa-check"></i><b>9.5</b> <code>add_n_nodes()</code></a></li>
+<li class="chapter" data-level="9.6" data-path="fcns-modification.html"><a href="fcns-modification.html#add_n_nodes_ws"><i class="fa fa-check"></i><b>9.6</b> <code>add_n_nodes_ws()</code></a></li>
+<li class="chapter" data-level="9.7" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edges_w_string"><i class="fa fa-check"></i><b>9.7</b> <code>add_edges_w_string()</code></a></li>
+<li class="chapter" data-level="9.8" data-path="fcns-modification.html"><a href="fcns-modification.html#rev_edge_dir"><i class="fa fa-check"></i><b>9.8</b> <code>rev_edge_dir()</code></a></li>
+<li class="chapter" data-level="9.9" data-path="fcns-modification.html"><a href="fcns-modification.html#rev_edge_dir_ws"><i class="fa fa-check"></i><b>9.9</b> <code>rev_edge_dir_ws()</code></a></li>
+<li class="chapter" data-level="9.10" data-path="fcns-modification.html"><a href="fcns-modification.html#add_nodes_from_table"><i class="fa fa-check"></i><b>9.10</b> <code>add_nodes_from_table()</code></a></li>
+<li class="chapter" data-level="9.11" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edges_from_table"><i class="fa fa-check"></i><b>9.11</b> <code>add_edges_from_table()</code></a></li>
+<li class="chapter" data-level="9.12" data-path="fcns-modification.html"><a href="fcns-modification.html#add_nodes_from_df_cols"><i class="fa fa-check"></i><b>9.12</b> <code>add_nodes_from_df_cols()</code></a></li>
+<li class="chapter" data-level="9.13" data-path="fcns-modification.html"><a href="fcns-modification.html#add_path"><i class="fa fa-check"></i><b>9.13</b> <code>add_path()</code></a></li>
+<li class="chapter" data-level="9.14" data-path="fcns-modification.html"><a href="fcns-modification.html#add_cycle"><i class="fa fa-check"></i><b>9.14</b> <code>add_cycle()</code></a></li>
+<li class="chapter" data-level="9.15" data-path="fcns-modification.html"><a href="fcns-modification.html#add_star"><i class="fa fa-check"></i><b>9.15</b> <code>add_star()</code></a></li>
+<li class="chapter" data-level="9.16" data-path="fcns-modification.html"><a href="fcns-modification.html#add_prism"><i class="fa fa-check"></i><b>9.16</b> <code>add_prism()</code></a></li>
+<li class="chapter" data-level="9.17" data-path="fcns-modification.html"><a href="fcns-modification.html#add_balanced_tree"><i class="fa fa-check"></i><b>9.17</b> <code>add_balanced_tree()</code></a></li>
+<li class="chapter" data-level="9.18" data-path="fcns-modification.html"><a href="fcns-modification.html#add_full_graph"><i class="fa fa-check"></i><b>9.18</b> <code>add_full_graph()</code></a></li>
+<li class="chapter" data-level="9.19" data-path="fcns-modification.html"><a href="fcns-modification.html#join_node_attrs"><i class="fa fa-check"></i><b>9.19</b> <code>join_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.20" data-path="fcns-modification.html"><a href="fcns-modification.html#join_edge_attrs"><i class="fa fa-check"></i><b>9.20</b> <code>join_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.21" data-path="fcns-modification.html"><a href="fcns-modification.html#set_graph_undirected"><i class="fa fa-check"></i><b>9.21</b> <code>set_graph_undirected()</code></a></li>
+<li class="chapter" data-level="9.22" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_node"><i class="fa fa-check"></i><b>9.22</b> <code>delete_node()</code></a></li>
+<li class="chapter" data-level="9.23" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_edge"><i class="fa fa-check"></i><b>9.23</b> <code>delete_edge()</code></a></li>
+<li class="chapter" data-level="9.24" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_nodes_ws"><i class="fa fa-check"></i><b>9.24</b> <code>delete_nodes_ws()</code></a></li>
+<li class="chapter" data-level="9.25" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_edges_ws"><i class="fa fa-check"></i><b>9.25</b> <code>delete_edges_ws()</code></a></li>
+<li class="chapter" data-level="9.26" data-path="fcns-modification.html"><a href="fcns-modification.html#node_type"><i class="fa fa-check"></i><b>9.26</b> <code>node_type()</code></a></li>
+<li class="chapter" data-level="9.27" data-path="fcns-modification.html"><a href="fcns-modification.html#edge_rel"><i class="fa fa-check"></i><b>9.27</b> <code>edge_rel()</code></a></li>
+<li class="chapter" data-level="9.28" data-path="fcns-modification.html"><a href="fcns-modification.html#create_subgraph_ws"><i class="fa fa-check"></i><b>9.28</b> <code>create_subgraph_ws()</code></a></li>
+<li class="chapter" data-level="9.29" data-path="fcns-modification.html"><a href="fcns-modification.html#get_min_spanning_tree"><i class="fa fa-check"></i><b>9.29</b> <code>get_min_spanning_tree()</code></a></li>
+<li class="chapter" data-level="9.30" data-path="fcns-modification.html"><a href="fcns-modification.html#set_df_as_node_attr"><i class="fa fa-check"></i><b>9.30</b> <code>set_df_as_node_attr()</code></a></li>
+<li class="chapter" data-level="9.31" data-path="fcns-modification.html"><a href="fcns-modification.html#set_df_as_edge_attr"><i class="fa fa-check"></i><b>9.31</b> <code>set_df_as_edge_attr()</code></a></li>
+<li class="chapter" data-level="9.32" data-path="fcns-modification.html"><a href="fcns-modification.html#set_node_attrs"><i class="fa fa-check"></i><b>9.32</b> <code>set_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.33" data-path="fcns-modification.html"><a href="fcns-modification.html#set_edge_attrs"><i class="fa fa-check"></i><b>9.33</b> <code>set_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.34" data-path="fcns-modification.html"><a href="fcns-modification.html#set_node_attrs_ws"><i class="fa fa-check"></i><b>9.34</b> <code>set_node_attrs_ws()</code></a></li>
+<li class="chapter" data-level="9.35" data-path="fcns-modification.html"><a href="fcns-modification.html#set_edge_attrs_ws"><i class="fa fa-check"></i><b>9.35</b> <code>set_edge_attrs_ws()</code></a></li>
+<li class="chapter" data-level="9.36" data-path="fcns-modification.html"><a href="fcns-modification.html#copy_node_attrs"><i class="fa fa-check"></i><b>9.36</b> <code>copy_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.37" data-path="fcns-modification.html"><a href="fcns-modification.html#copy_edge_attrs"><i class="fa fa-check"></i><b>9.37</b> <code>copy_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.38" data-path="fcns-modification.html"><a href="fcns-modification.html#drop_node_attrs"><i class="fa fa-check"></i><b>9.38</b> <code>drop_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.39" data-path="fcns-modification.html"><a href="fcns-modification.html#drop_edge_attrs"><i class="fa fa-check"></i><b>9.39</b> <code>drop_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.40" data-path="fcns-modification.html"><a href="fcns-modification.html#rename_node_attrs"><i class="fa fa-check"></i><b>9.40</b> <code>rename_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.41" data-path="fcns-modification.html"><a href="fcns-modification.html#rename_edge_attrs"><i class="fa fa-check"></i><b>9.41</b> <code>rename_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.42" data-path="fcns-modification.html"><a href="fcns-modification.html#rescale_node_attrs"><i class="fa fa-check"></i><b>9.42</b> <code>rescale_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.43" data-path="fcns-modification.html"><a href="fcns-modification.html#rescale_edge_attrs"><i class="fa fa-check"></i><b>9.43</b> <code>rescale_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.44" data-path="fcns-modification.html"><a href="fcns-modification.html#mutate_node_attrs"><i class="fa fa-check"></i><b>9.44</b> <code>mutate_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.45" data-path="fcns-modification.html"><a href="fcns-modification.html#mutate_edge_attrs"><i class="fa fa-check"></i><b>9.45</b> <code>mutate_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.46" data-path="fcns-modification.html"><a href="fcns-modification.html#recode_node_attrs"><i class="fa fa-check"></i><b>9.46</b> <code>recode_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.47" data-path="fcns-modification.html"><a href="fcns-modification.html#recode_edge_attrs"><i class="fa fa-check"></i><b>9.47</b> <code>recode_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.48" data-path="fcns-modification.html"><a href="fcns-modification.html#colorize_node_attrs"><i class="fa fa-check"></i><b>9.48</b> <code>colorize_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.49" data-path="fcns-modification.html"><a href="fcns-modification.html#colorize_edge_attrs"><i class="fa fa-check"></i><b>9.49</b> <code>colorize_edge_attrs()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="fcns-caching.html"><a href="fcns-caching.html"><i class="fa fa-check"></i><b>10</b> Functions: Caching Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="fcns-caching.html"><a href="fcns-caching.html#set_cache"><i class="fa fa-check"></i><b>10.1</b> <code>set_cache()</code></a></li>
+<li class="chapter" data-level="10.2" data-path="fcns-caching.html"><a href="fcns-caching.html#get_cache"><i class="fa fa-check"></i><b>10.2</b> <code>get_cache()</code></a></li>
+<li class="chapter" data-level="10.3" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_node_attrs"><i class="fa fa-check"></i><b>10.3</b> <code>cache_node_attrs()</code></a></li>
+<li class="chapter" data-level="10.4" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_edge_attrs"><i class="fa fa-check"></i><b>10.4</b> <code>cache_edge_attrs()</code></a></li>
+<li class="chapter" data-level="10.5" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_node_attrs_ws"><i class="fa fa-check"></i><b>10.5</b> <code>cache_node_attrs_ws()</code></a></li>
+<li class="chapter" data-level="10.6" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_edge_attrs_ws"><i class="fa fa-check"></i><b>10.6</b> <code>cache_edge_attrs_ws()</code></a></li>
+<li class="chapter" data-level="10.7" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_node_count_ws"><i class="fa fa-check"></i><b>10.7</b> <code>cache_node_count_ws()</code></a></li>
+<li class="chapter" data-level="10.8" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_edge_count_ws"><i class="fa fa-check"></i><b>10.8</b> <code>cache_edge_count_ws()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html"><i class="fa fa-check"></i><b>11</b> Functions: Graph Metadata</a><ul>
+<li class="chapter" data-level="11.1" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#set_graph_name"><i class="fa fa-check"></i><b>11.1</b> <code>set_graph_name()</code></a></li>
+<li class="chapter" data-level="11.2" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#set_graph_time"><i class="fa fa-check"></i><b>11.2</b> <code>set_graph_time()</code></a></li>
+<li class="chapter" data-level="11.3" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#set_global_graph_attrs"><i class="fa fa-check"></i><b>11.3</b> <code>set_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#add_global_graph_attrs"><i class="fa fa-check"></i><b>11.4</b> <code>add_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.5" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#get_global_graph_attrs"><i class="fa fa-check"></i><b>11.5</b> <code>get_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#delete_global_graph_attrs"><i class="fa fa-check"></i><b>11.6</b> <code>delete_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.7" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#clear_global_graph_attrs"><i class="fa fa-check"></i><b>11.7</b> <code>clear_global_graph_attrs()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="fcns-g-series.html"><a href="fcns-g-series.html"><i class="fa fa-check"></i><b>12</b> Functions: Graph Series</a><ul>
+<li class="chapter" data-level="12.1" data-path="fcns-g-series.html"><a href="fcns-g-series.html#create_series"><i class="fa fa-check"></i><b>12.1</b> <code>create_series()</code></a></li>
+<li class="chapter" data-level="12.2" data-path="fcns-g-series.html"><a href="fcns-g-series.html#add_to_series"><i class="fa fa-check"></i><b>12.2</b> <code>add_to_series()</code></a></li>
+<li class="chapter" data-level="12.3" data-path="fcns-g-series.html"><a href="fcns-g-series.html#remove_from_series"><i class="fa fa-check"></i><b>12.3</b> <code>remove_from_series()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="fcns-g-series.html"><a href="fcns-g-series.html#subset_series"><i class="fa fa-check"></i><b>12.4</b> <code>subset_series()</code></a></li>
+<li class="chapter" data-level="12.5" data-path="fcns-g-series.html"><a href="fcns-g-series.html#get_graph_from_series"><i class="fa fa-check"></i><b>12.5</b> <code>get_graph_from_series()</code></a></li>
+<li class="chapter" data-level="12.6" data-path="fcns-g-series.html"><a href="fcns-g-series.html#trigger_script"><i class="fa fa-check"></i><b>12.6</b> <code>trigger_script()</code></a></li>
+<li class="chapter" data-level="12.7" data-path="fcns-g-series.html"><a href="fcns-g-series.html#series_info"><i class="fa fa-check"></i><b>12.7</b> <code>series_info()</code></a></li>
+<li class="chapter" data-level="12.8" data-path="fcns-g-series.html"><a href="fcns-g-series.html#graph_count"><i class="fa fa-check"></i><b>12.8</b> <code>graph_count()</code></a></li>
+<li class="chapter" data-level="12.9" data-path="fcns-g-series.html"><a href="fcns-g-series.html#render_graph_from_series"><i class="fa fa-check"></i><b>12.9</b> <code>render_graph_from_series()</code></a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The DiagrammeR Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="creation" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Graph Creation</h1>
+<p>Creating a graph object is undoubtedly important. I dare say it is one of the fundamental aspects of the <strong>DiagrammeR</strong> world. With the graph object produced, so many other things are possible. For instance, you can inspect certain aspects of the graph, modify the graph in many ways that suit your workflow, view the graph (or part of the graph!) in the <strong>RStudio</strong> Viewer, or perform graph traversals and thus create complex graph queries using <strong>magrittr</strong> (<code>%&gt;%</code>) or <strong>pipeR</strong> (<code>%&gt;&gt;%</code>) pipelines. The possibilities are really very exciting and it all begins with creating those graph objects.</p>
+<div id="getting-started" class="section level2">
+<h2><span class="header-section-number">2.1</span> Getting Started</h2>
+<p>Before we dive into making a graph with DiagrammeR we’d want to be sure some things are in order. First, we need to make sure we have the package installed in <strong>R</strong>. While the package is available on <strong>CRAN</strong>, it’s recommended that the development version of <strong>DiagrammeR</strong> is used. It’s available on GitHub and to install packages from there, we need to use the <strong>devtools</strong> package. (If not installed use <code>install.packages(&quot;devtools&quot;)</code>.) After that, get the development build of <strong>DiagrammeR</strong> using <code>devtools::install_github(&quot;rich-iannone/DiagrammeR&quot;)</code>. Finally, load the package with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DiagrammeR)</code></pre></div>
+<p>A few notes are useful here, the package automatically enables the <strong>magrittr</strong> pipe operator (<code>%&gt;%</code>) which allows for chaining between statements in a left-to-right, easy-to-read manner. The <strong>pipeR</strong> package’s <code>%&gt;&gt;%</code> (which works very similarly) is not loaded by <strong>DiagrammeR</strong> but it can be used. In the examples throughout, we’ll stick with <strong>magrittr</strong>’s pipe.</p>
+</div>
+<div id="visualizing-a-simple-graph" class="section level2">
+<h2><span class="header-section-number">2.2</span> Visualizing a Simple Graph</h2>
+<p>When considering the visualization of a graph we often have to consider the eventual size of the graph. Size matters both to the computation time of the visualization and also to the effectiveness of the visualization itself. Very large graphs (i.e., millions of nodes) would be difficult to visualize without some care taken to ensure that not all the nodes are actually drawn; otherwise, the visualization may not even be created without out-of-memory errors (or, and I’m not sure this is much better, giant vector graphics files). Furthermore, displaying huge volumes of nodes and edges does not always offer great insight unless great care has been taken toward using visual aesthetics.</p>
+<p>This tension between visualizing a graph or simply using the graph data to perform queries is often present. However, for now, let’s cast such considerations aside and learn how to create and visualize very simple graphs. We’ll use of few of <strong>DiagrammeR</strong>’s functions to build up graphs and also to modify the graph. While some of these functions may not be as useful for building graphs with real-world data (where, instead, one might opt for bulk imports of tabular data), it’ll provide some basis for the more advanced functionality we’ll explore later on.</p>
+<div id="creating-nodes" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Creating Nodes</h3>
+<p>Let’s get to making a graph. The <code>create_graph()</code> function creates a graph object and, optionally, allows for intialization of nodes, edges, and a few global attributes for the graph. We can create an empty graph by simply using <code>create_graph()</code> as is.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graph_e &lt;-<span class="st"> </span><span class="kw">create_graph</span>()</code></pre></div>
+<p>This really is an empty graph (no nodes) and we can quickly verify this by using the <code>node_count()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">node_count</span>(graph_e)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>You can add individual nodes to a graph by using the <code>add_node()</code> function. Let’s add two nodes in the most minimal fashion:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graph_1n &lt;-<span class="st"> </span><span class="kw">add_node</span>(<span class="dt">graph =</span> graph_e)
+graph_2n &lt;-<span class="st"> </span><span class="kw">add_node</span>(<span class="dt">graph =</span> graph_1n)</code></pre></div>
+<p>This creates 2 nodes with ID values <code>1</code> and <code>2</code> (ID values are set for you as auto-incrementing integers). There are a few functions that can be used to check that these additions did occur. We can get a count of nodes as before with the <code>node_count()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Count the number of nodes in each graph produced</span>
+<span class="kw">c</span>(<span class="kw">node_count</span>(<span class="dt">graph =</span> graph_e),
+  <span class="kw">node_count</span>(<span class="dt">graph =</span> graph_1n),
+  <span class="kw">node_count</span>(<span class="dt">graph =</span> graph_2n))</code></pre></div>
+<pre><code>## [1] 0 1 2</code></pre>
+<p>Alternatively, we can use the <code>get_node_ids()</code> function to return a vector of node ID values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the node ID values for `graph_2n`; note that</span>
+<span class="co"># the data argument is `x` and not `graph`</span>
+<span class="kw">get_node_ids</span>(<span class="dt">x =</span> graph_2n)</code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+</div>
+<div id="viewing-the-graph" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Viewing the Graph</h3>
+<p>Finally, we can visualize the graph by using the <code>render_graph()</code> function. The nodes typically appear very large when there are few of them but scale down in size if there are many. The values shown inside the nodes are the automatically-assigned node ID values. If we were to assign <code>label</code> values to each of the nodes - which could be done when using <code>add_node(label = &quot;label_name&quot;)</code>, for example - those values would be shown instead.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_2n)</code></pre></div>
+<div id="htmlwidget-9180ecd4dc779d8c9a5a" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9180ecd4dc779d8c9a5a">{"x":{"diagram":"digraph {\n\ngraph [layout = \"neato\",\n       outputorder = \"edgesfirst\"]\n\nnode [fontname = \"Helvetica\",\n     fontsize = \"10\",\n     shape = \"circle\",\n     fixedsize = \"true\",\n     width = \"0.5\",\n     style = \"filled\",\n     fillcolor = \"aliceblue\",\n     color = \"gray70\",\n     fontcolor = \"gray50\"]\n\nedge [len = \"1.5\",\n     color = \"gray40\",\n     arrowsize = \"0.5\"]\n\n  \"1\"\n  \"2\"\n}","config":{"engine":["function (mat, widths = rep.int(1, ncol(mat)), heights = rep.int(1, ","    nrow(mat)), respect = FALSE) ","{","    storage.mode(mat) <- \"integer\"","    mat <- as.matrix(mat)","    if (!is.logical(respect)) {","        respect <- as.matrix(respect)","        if (!is.matrix(respect) || any(dim(respect) != dim(mat))) ","            stop(\"'respect' must be logical or matrix with same dimension as 'mat'\")","    }","    num.figures <- as.integer(max(mat))","    for (i in 1L:num.figures) if (match(i, mat, nomatch = 0L) == ","        0L) ","        stop(gettextf(\"layout matrix must contain at least one reference\\nto each of the values {1 ... %d}\\n\", ","            num.figures), domain = NA)","    dm <- dim(mat)","    num.rows <- dm[1L]","    num.cols <- dm[2L]","    cm.widths <- if (is.character(widths)) ","        grep(\"cm\", widths, fixed = TRUE)","    cm.heights <- if (is.character(heights)) ","        grep(\"cm\", heights, fixed = TRUE)","    pad1.rm.cm <- function(v, cm.v, len) {","        if ((ll <- length(v)) < len) ","            v <- c(v, rep.int(1, len - ll))","        if (is.character(v)) {","            wcm <- v[cm.v]","            v[cm.v] <- substring(wcm, 1L, nchar(wcm, type = \"c\") - ","                3)","            v <- chartr(getOption(\"OutDec\"), \".\", v)","        }","        as.numeric(v)","    }","    widths <- pad1.rm.cm(widths, cm.widths, len = num.cols)","    heights <- pad1.rm.cm(heights, cm.heights, len = num.rows)","    if (is.matrix(respect)) {","        respect.mat <- as.integer(respect)","        respect <- 2","    }","    else {","        respect.mat <- matrix(0L, num.rows, num.cols)","    }","    .External.graphics(C_layout, num.rows, num.cols, mat, as.integer(num.figures), ","        col.widths = widths, row.heights = heights, cm.widths, ","        cm.heights, respect = as.integer(respect), respect.mat)","    invisible(num.figures)","}"],"options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Adding nodes does not automatically add edges. We can check that there are no edges in the graph by using the <code>edge_count()</code> function. A graph with no edges will return <code>0</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">edge_count</span>(<span class="dt">graph =</span> graph_2n)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+</div>
+<div id="piping-has-its-advantages" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Piping Has Its Advantages</h3>
+<p>The vast majority of the functions in <strong>DiagrammeR</strong> have the <code>graph</code> argument (or <code>x</code> as we’ve also seen) as their first argument. This is useful in the context of using the <strong>magrittr</strong> pipe operator, <code>%&gt;%</code> as we can start with a graph object, perform a transformation on that graph, expect a modified graph, and use that as input for the next transformation function, all while joining such operations with the pipe. With this piping approach, we can create the same graph as before (2 nodes, no edges) by chaining with <code>%&gt;%</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create the equivalent `graph_2n` object</span>
+<span class="co"># but use `%&gt;%` to avoid intermediate objects</span>
+graph_2n_piped &lt;-
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>()
+
+<span class="co"># Verify that the graph contains 2 nodes</span>
+<span class="kw">node_count</span>(graph_2n_piped)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>The benefits are pretty obvious over the <em>nested</em> approach that avoids creating intermediate graph objects.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create the equivalent `graph_2n` object</span>
+<span class="co"># using nested function calls</span>
+graph_2n_nested_fcns &lt;-
+<span class="st">  </span><span class="kw">add_node</span>(
+    <span class="kw">add_node</span>(
+      <span class="kw">create_graph</span>()))
+
+<span class="co"># Verify that the graph contains 2 nodes</span>
+<span class="kw">node_count</span>(graph_2n_nested_fcns)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>With the <code>%&gt;%</code>, the sequence of operations is more easily readable (left to right), plus, only one name to create! The less names the better. Moreover, and not shown above, the situtation for the nested approach gets more confusing as we add arguments and their values (of which, there can be many).</p>
+</div>
+<div id="adding-edges" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Adding Edges</h3>
+<p>So, we have made a graph with 2 nodes. The next reasonable thing to do would be adding an edge between the nodes. By default, new graphs produced with <code>create_graph()</code> are <em>directed graphs</em>. To review, a directed graph is one where any edge between a pair of nodes has a defined direction (e.g., by the definition <code>1-&gt;2</code>, we mean to say that edge is directed from node <code>1</code> to node <code>2</code>). This book mainly deals with directed graphs but we may occasionally delve into <em>undirected graphs</em> (where edges have no specified direction between nodes). At any rate, using <code>create_graph(directed = FALSE)</code> will create an empty graph designated as undirected (i.e., any edges added will be undirected).</p>
+<p>Let’s use a pipeline with <code>%&gt;%</code> to create a graph with 2 nodes and the edge with definition <code>1-&gt;2</code>. This requires three different functions (<code>create_graph()</code>, <code>add_node()</code>, and <code>add_edge()</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a graph with 2 nodes and 1 edge</span>
+graph_2n_1e &lt;-
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_edge</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">2</span>)
+
+<span class="co"># Describe the graph</span>
+<span class="kw">paste</span>(<span class="st">&quot;This graph has:&quot;</span>,
+      <span class="kw">node_count</span>(graph_2n_1e), <span class="st">&quot;nodes,&quot;</span>,
+      <span class="kw">edge_count</span>(graph_2n_1e), <span class="st">&quot;edges&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;This graph has: 2 nodes, 1 edges&quot;</code></pre>
+<p>We can be sure we created the correct edge definition (<code>1-&gt;2</code>) by using the <code>get_edges()</code> function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The graph has 1 edge, what is its</span>
+<span class="co"># edge definition?</span>
+<span class="kw">get_edges</span>(graph_2n_1e)</code></pre></div>
+<pre><code>## [1] &quot;1-&gt;2&quot;</code></pre>
+<p>We now have this simple and small graph. We can view it again by calling the <code>render_graph()</code> function. You probably do not want to assign the graph to an object when calling <code>render_graph()</code> (as you would likely mistakenly overwrite a graph you’ve previously made). We are purely using this function for its side effect, which is viewing. We can view the graph using the <strong>Graphviz</strong> renderer:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show the graph using the Graphviz engine</span>
+<span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_2n_1e)</code></pre></div>
+<div id="htmlwidget-4950d0b4fbc8588a09e1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4950d0b4fbc8588a09e1">{"x":{"diagram":"digraph {\n\ngraph [layout = \"neato\",\n       outputorder = \"edgesfirst\"]\n\nnode [fontname = \"Helvetica\",\n     fontsize = \"10\",\n     shape = \"circle\",\n     fixedsize = \"true\",\n     width = \"0.5\",\n     style = \"filled\",\n     fillcolor = \"aliceblue\",\n     color = \"gray70\",\n     fontcolor = \"gray50\"]\n\nedge [len = \"1.5\",\n     color = \"gray40\",\n     arrowsize = \"0.5\"]\n\n  \"1\"\n  \"2\"\n\"1\"->\"2\" [id = \"1\"] \n}","config":{"engine":["function (mat, widths = rep.int(1, ncol(mat)), heights = rep.int(1, ","    nrow(mat)), respect = FALSE) ","{","    storage.mode(mat) <- \"integer\"","    mat <- as.matrix(mat)","    if (!is.logical(respect)) {","        respect <- as.matrix(respect)","        if (!is.matrix(respect) || any(dim(respect) != dim(mat))) ","            stop(\"'respect' must be logical or matrix with same dimension as 'mat'\")","    }","    num.figures <- as.integer(max(mat))","    for (i in 1L:num.figures) if (match(i, mat, nomatch = 0L) == ","        0L) ","        stop(gettextf(\"layout matrix must contain at least one reference\\nto each of the values {1 ... %d}\\n\", ","            num.figures), domain = NA)","    dm <- dim(mat)","    num.rows <- dm[1L]","    num.cols <- dm[2L]","    cm.widths <- if (is.character(widths)) ","        grep(\"cm\", widths, fixed = TRUE)","    cm.heights <- if (is.character(heights)) ","        grep(\"cm\", heights, fixed = TRUE)","    pad1.rm.cm <- function(v, cm.v, len) {","        if ((ll <- length(v)) < len) ","            v <- c(v, rep.int(1, len - ll))","        if (is.character(v)) {","            wcm <- v[cm.v]","            v[cm.v] <- substring(wcm, 1L, nchar(wcm, type = \"c\") - ","                3)","            v <- chartr(getOption(\"OutDec\"), \".\", v)","        }","        as.numeric(v)","    }","    widths <- pad1.rm.cm(widths, cm.widths, len = num.cols)","    heights <- pad1.rm.cm(heights, cm.heights, len = num.rows)","    if (is.matrix(respect)) {","        respect.mat <- as.integer(respect)","        respect <- 2","    }","    else {","        respect.mat <- matrix(0L, num.rows, num.cols)","    }","    .External.graphics(C_layout, num.rows, num.cols, mat, as.integer(num.figures), ","        col.widths = widths, row.heights = heights, cm.widths, ","        cm.heights, respect = as.integer(respect), respect.mat)","    invisible(num.figures)","}"],"options":null}},"evals":[],"jsHooks":[]}</script>
+<p>And also, if you like interactivity and fluid physical motions, try using the <strong>visNetwork</strong> renderer.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show the graph using the visNetwork engine</span>
+<span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_2n_1e, <span class="dt">output =</span> <span class="st">&quot;visNetwork&quot;</span>)</code></pre></div>
+<div id="htmlwidget-3b0499dc42f272cf8899" style="width:672px;height:480px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3b0499dc42f272cf8899">{"x":{"nodes":{"id":[1,2],"group":[null,null],"label":[null,null]},"edges":{"id":[1],"from":[1],"to":[2],"label":[null]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":{"enabled":true,"scaleFactor":1}}},"physics":{"stabilization":{"enabled":true,"onlyDynamicEdges":false,"fit":true}},"layout":{"improvedLayout":true}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="deleting-graph-elements" class="section level3">
+<h3><span class="header-section-number">2.2.5</span> Deleting Graph Elements</h3>
+<p>Just as we’ve built up a graph, we can do the opposite and remove edges and nodes. The key functions here are <code>delete_edge()</code> and <code>delete_node()</code>. Let’s remove the edge we just recently added and then remove each of the nodes, leaving us again with an empty graph. Note again that we don’t need to repeat the graph’s object name throughout this pipeline (which is nice, saves typing). Second useful note: typing <code>delete_edge(</code> and then hitting the tab in <strong>RStudio</strong> brings up useful information on the function’s argument names along with useful descriptions. I find this very helpful and use this feature quite often.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Remove the edge from the graph, then,</span>
+<span class="co"># remove each of the 2 nodes</span>
+graph_2n_1e_empty &lt;-
+<span class="st">  </span>graph_2n_1e %&gt;%
+<span class="st">  </span><span class="kw">delete_edge</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">2</span>) %&gt;%
+<span class="st">  </span><span class="kw">delete_node</span>(<span class="dt">node =</span> <span class="dv">2</span>) %&gt;%
+<span class="st">  </span><span class="kw">delete_node</span>(<span class="dt">node =</span> <span class="dv">1</span>)
+
+<span class="co"># Verify that there are no nodes left</span>
+<span class="co"># in this graph object</span>
+<span class="kw">node_count</span>(graph_2n_1e_empty)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>There are some shortcuts/variations for doing the same thing (there are often numerous ways to transform graphs). You could simply call <code>delete_node()</code> twice, for instance, to get an empty graph. This is because removing a node with edges attached will automatically remove those edges. If we were now to display the graph with <code>render_graph()</code> you would get a field of nothingness. Since that’s not very interesting, I’m not going to show it here.</p>
+</div>
+</div>
+<div id="using-data-frames" class="section level2">
+<h2><span class="header-section-number">2.3</span> Using Data Frames</h2>
+<p>For certain graph diagrams there will be many nodes and edges, and, it may not be practical to add nodes/edges a few at a time. Let’s take advantage of <strong>R</strong> and its data frames! We can construct a specialized data frame for nodes (a <em>node data frame</em>, or <em>ndf</em>) and include the basic node information (ID values, a <code>type</code>, and a text-based <code>label</code>), and, also include <em>extra</em> columns that could be used for node aesthetics when displayed or even just metadata. To start simply, let’s use the <code>create_node_df()</code> function to specify a minimal collection of nodes in an ndf.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_node_df</span>(
+  <span class="dt">n =</span> <span class="dv">3</span>,
+  <span class="dt">label =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="left">type</th>
+<th align="left">label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">NA</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">NA</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">NA</td>
+<td align="left">3</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>n</code> argument is required here and it must indicate the number of nodes you intend this object to contain. The use of <code>label = TRUE</code> allows for copying of the node IDs as the node <code>label</code> (which is a node attribute). This is not always desirable, however. A better option is to specify a vector of label values (you can use all manner of characters, it will be coerced to a <code>character</code> vector). Make certain that this vector is the same length as specified by <code>n</code>. Also, if we ensure that the <code>label</code> node attribute always contains unique values, we can later select individual nodes by their <code>label</code> values and perform actions on these selections.</p>
+<p>You may have noticed the node attribute <code>type</code> in the output (alas, all <code>NA</code>s). Values may optionally be provided for this attribute and, again, having this extra metadata is recommended as it is helpful for categorizing nodes. Let’s display a different <code>ndf</code> object that includes two different <code>type</code> values (<code>A</code> and <code>B</code>) and unique <code>label</code> values that are not strict copies of the node <code>id</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ndf &lt;-
+<span class="st">  </span><span class="kw">create_node_df</span>(
+    <span class="dt">n =</span> <span class="dv">3</span>,
+    <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>),
+    <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="left">type</th>
+<th align="left">label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">A</td>
+<td align="left">one</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">A</td>
+<td align="left">two</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">B</td>
+<td align="left">three</td>
+</tr>
+</tbody>
+</table>
+<p>Now onto the edges, those connections between the nodes. The edges are also collected in a data frame (this time, as an <em>edge data frame</em> or <em>edf</em>). The <code>create_edge_df()</code> function is used to generate this type of object.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_edge_df</span>(
+  <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>),
+  <span class="dt">to   =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">from</th>
+<th align="right">to</th>
+<th align="left">rel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>from</code> and <code>to</code> arguments specify which nodes for the edge are outgoing and incoming, respectively. Here, the edges are: <code>1-&gt;2</code> and <code>1-&gt;3</code>. As stated before, for directed graphs, the order is essential. The <code>rel</code> argument allows for the inclusion of text labels in the same manner as the node <code>type</code>. This is useful for targeting specific groups of edges during a selection or traversal. Let’s refine the <code>edf</code> object and include two different <code>rel</code> values (<code>X</code> and <code>Y</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">edf &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">create_edge_df</span>(
+    <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>),
+    <span class="dt">to   =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>),
+    <span class="dt">rel =</span> <span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>))</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">from</th>
+<th align="right">to</th>
+<th align="left">rel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">Y</td>
+</tr>
+</tbody>
+</table>
+<p>Now that we have an <em>ndf</em> and an <em>edf</em>, we can combine those into a new graph object by using these specialized data frames within the <code>create_graph()</code> function call.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a graph object using node and</span>
+<span class="co"># edge data frames</span>
+graph_ndf_edf &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">create_graph</span>(
+    <span class="dt">nodes_df =</span> ndf,
+    <span class="dt">edges_df =</span> edf)</code></pre></div>
+<p>What exactly happened? These data frames (<code>ndf</code> and <code>edf</code>) were placed within the graph object when it was created. They essentially became internal <code>ndf</code> and <code>edf</code> objects. We can inspect the graph’s internal <em>ndf</em> and <em>edf</em> at any time using the <code>get_node_df()</code> and <code>get_edge_df()</code> functions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show the graph&#39;s internal node data frame</span>
+<span class="kw">get_node_df</span>(graph_ndf_edf)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="left">type</th>
+<th align="left">label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">A</td>
+<td align="left">one</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">A</td>
+<td align="left">two</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">B</td>
+<td align="left">three</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show the graph&#39;s internal edge data frame</span>
+<span class="kw">get_edge_df</span>(graph_ndf_edf)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="right">from</th>
+<th align="right">to</th>
+<th align="left">rel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">Y</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s view the graph using <code>render_graph()</code>. The output will clearly show us how the 3 nodes are connected to each other.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show the graph using `render_graph()`</span>
+<span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_ndf_edf)</code></pre></div>
+<div id="htmlwidget-61ddf6c74cc0381dd2b0" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-61ddf6c74cc0381dd2b0">{"x":{"diagram":"digraph {\n\ngraph [layout = \"neato\",\n       outputorder = \"edgesfirst\"]\n\nnode [fontname = \"Helvetica\",\n     fontsize = \"10\",\n     shape = \"circle\",\n     fixedsize = \"true\",\n     width = \"0.5\",\n     style = \"filled\",\n     fillcolor = \"aliceblue\",\n     color = \"gray70\",\n     fontcolor = \"gray50\"]\n\nedge [len = \"1.5\",\n     color = \"gray40\",\n     arrowsize = \"0.5\"]\n\n  \"1\" [label = \"one\"] \n  \"2\" [label = \"two\"] \n  \"3\" [label = \"three\"] \n\"1\"->\"2\" [id = \"1\"] \n\"1\"->\"3\" [id = \"2\"] \n}","config":{"engine":["function (mat, widths = rep.int(1, ncol(mat)), heights = rep.int(1, ","    nrow(mat)), respect = FALSE) ","{","    storage.mode(mat) <- \"integer\"","    mat <- as.matrix(mat)","    if (!is.logical(respect)) {","        respect <- as.matrix(respect)","        if (!is.matrix(respect) || any(dim(respect) != dim(mat))) ","            stop(\"'respect' must be logical or matrix with same dimension as 'mat'\")","    }","    num.figures <- as.integer(max(mat))","    for (i in 1L:num.figures) if (match(i, mat, nomatch = 0L) == ","        0L) ","        stop(gettextf(\"layout matrix must contain at least one reference\\nto each of the values {1 ... %d}\\n\", ","            num.figures), domain = NA)","    dm <- dim(mat)","    num.rows <- dm[1L]","    num.cols <- dm[2L]","    cm.widths <- if (is.character(widths)) ","        grep(\"cm\", widths, fixed = TRUE)","    cm.heights <- if (is.character(heights)) ","        grep(\"cm\", heights, fixed = TRUE)","    pad1.rm.cm <- function(v, cm.v, len) {","        if ((ll <- length(v)) < len) ","            v <- c(v, rep.int(1, len - ll))","        if (is.character(v)) {","            wcm <- v[cm.v]","            v[cm.v] <- substring(wcm, 1L, nchar(wcm, type = \"c\") - ","                3)","            v <- chartr(getOption(\"OutDec\"), \".\", v)","        }","        as.numeric(v)","    }","    widths <- pad1.rm.cm(widths, cm.widths, len = num.cols)","    heights <- pad1.rm.cm(heights, cm.heights, len = num.rows)","    if (is.matrix(respect)) {","        respect.mat <- as.integer(respect)","        respect <- 2","    }","    else {","        respect.mat <- matrix(0L, num.rows, num.cols)","    }","    .External.graphics(C_layout, num.rows, num.cols, mat, as.integer(num.figures), ","        col.widths = widths, row.heights = heights, cm.widths, ","        cm.heights, respect = as.integer(respect), respect.mat)","    invisible(num.figures)","}"],"options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="adding-basic-attributes" class="section level2">
+<h2><span class="header-section-number">2.4</span> Adding Basic Attributes</h2>
+<p>As stated previously, there is quite a bit more that you can do with node and edge data frames. Extra columns (representing attributes) filled with attribute values can be used for these two main purposes:</p>
+<ul>
+<li>associating data values to each node or edge</li>
+<li>providing styling attributes such as color names, node sizes, etc.</li>
+</ul>
+<p>We can add these extra columns/attrs when making the node or edge data frames. Here is an example where <code>color</code> attribute values for nodes and edges is provided along with some <code>fillcolor</code> values for nodes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a node data frame</span>
+ndf &lt;-
+<span class="st">  </span><span class="kw">create_node_df</span>(
+    <span class="dt">n =</span> <span class="dv">3</span>,
+    <span class="dt">type =</span> <span class="st">&quot;a&quot;</span>,
+    <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>),
+    <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>),
+    <span class="dt">fillcolor =</span> <span class="st">&quot;gray95&quot;</span>)
+
+<span class="co"># Create an edge data frame</span>
+edf &lt;-
+<span class="st">  </span><span class="kw">create_edge_df</span>(
+    <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),
+    <span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>),
+    <span class="dt">color =</span> <span class="st">&quot;darkgreen&quot;</span>)
+
+<span class="co"># Create a graph with the ndf and edf</span>
+graph_colors &lt;-
+<span class="st">  </span><span class="kw">create_graph</span>(
+    <span class="dt">nodes_df =</span> ndf,
+    <span class="dt">edges_df =</span> edf)
+
+<span class="co"># Show the graph using `render_graph()`</span>
+<span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_colors)</code></pre></div>
+<div id="htmlwidget-f1f84acf09c047059824" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f1f84acf09c047059824">{"x":{"diagram":"digraph {\n\ngraph [layout = \"neato\",\n       outputorder = \"edgesfirst\"]\n\nnode [fontname = \"Helvetica\",\n     fontsize = \"10\",\n     shape = \"circle\",\n     fixedsize = \"true\",\n     width = \"0.5\",\n     style = \"filled\",\n     fillcolor = \"aliceblue\",\n     color = \"gray70\",\n     fontcolor = \"gray50\"]\n\nedge [len = \"1.5\",\n     color = \"gray40\",\n     arrowsize = \"0.5\"]\n\n  \"1\" [label = \"one\", color = \"red\", fillcolor = \"gray95\"] \n  \"2\" [label = \"two\", color = \"blue\", fillcolor = \"gray95\"] \n  \"3\" [label = \"three\", color = \"red\", fillcolor = \"gray95\"] \n\"1\"->\"2\" [id = \"1\", color = \"darkgreen\"] \n\"2\"->\"3\" [id = \"2\", color = \"darkgreen\"] \n}","config":{"engine":["function (mat, widths = rep.int(1, ncol(mat)), heights = rep.int(1, ","    nrow(mat)), respect = FALSE) ","{","    storage.mode(mat) <- \"integer\"","    mat <- as.matrix(mat)","    if (!is.logical(respect)) {","        respect <- as.matrix(respect)","        if (!is.matrix(respect) || any(dim(respect) != dim(mat))) ","            stop(\"'respect' must be logical or matrix with same dimension as 'mat'\")","    }","    num.figures <- as.integer(max(mat))","    for (i in 1L:num.figures) if (match(i, mat, nomatch = 0L) == ","        0L) ","        stop(gettextf(\"layout matrix must contain at least one reference\\nto each of the values {1 ... %d}\\n\", ","            num.figures), domain = NA)","    dm <- dim(mat)","    num.rows <- dm[1L]","    num.cols <- dm[2L]","    cm.widths <- if (is.character(widths)) ","        grep(\"cm\", widths, fixed = TRUE)","    cm.heights <- if (is.character(heights)) ","        grep(\"cm\", heights, fixed = TRUE)","    pad1.rm.cm <- function(v, cm.v, len) {","        if ((ll <- length(v)) < len) ","            v <- c(v, rep.int(1, len - ll))","        if (is.character(v)) {","            wcm <- v[cm.v]","            v[cm.v] <- substring(wcm, 1L, nchar(wcm, type = \"c\") - ","                3)","            v <- chartr(getOption(\"OutDec\"), \".\", v)","        }","        as.numeric(v)","    }","    widths <- pad1.rm.cm(widths, cm.widths, len = num.cols)","    heights <- pad1.rm.cm(heights, cm.heights, len = num.rows)","    if (is.matrix(respect)) {","        respect.mat <- as.integer(respect)","        respect <- 2","    }","    else {","        respect.mat <- matrix(0L, num.rows, num.cols)","    }","    .External.graphics(C_layout, num.rows, num.cols, mat, as.integer(num.figures), ","        col.widths = widths, row.heights = heights, cm.widths, ","        cm.heights, respect = as.integer(respect), respect.mat)","    invisible(num.figures)","}"],"options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Note that whenever we use the default values for <code>type</code> or <code>label</code> in each <code>add_node()</code> call, we don’t get values for the <code>type</code> attribute and the <code>label</code> attribute is assigned the node ID value. In the ideal case, values for <code>type</code> and <code>label</code> are supplied. Something to keep in mind is that including <code>label</code> values that are unique or distinct across all nodes in the graph will make it possible to specify node selections and perform useful actions on specific nodes. Let’s create the <code>graph</code> object once more with <code>type</code> and <code>label</code> node attributes included.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graph_node_type_label &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">add_node</span>(<span class="dt">type =</span> <span class="st">&quot;number&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;one&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>(<span class="dt">type =</span> <span class="st">&quot;number&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;two&quot;</span>)</code></pre></div>
+</div>
+<div id="the-internal-ndfedf" class="section level2">
+<h2><span class="header-section-number">2.5</span> The Internal NDF/EDF</h2>
+<p>We can view the graph’s internal node data frame with the <code>get_node_df()</code> function so we can see that these attributes have been included alongside the graph’s nodes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_node_df</span>(graph_node_type_label)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">id</th>
+<th align="left">type</th>
+<th align="left">label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">number</td>
+<td align="left">one</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">number</td>
+<td align="left">two</td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s add a single, directed edge between nodes <code>1</code> and <code>2</code> using <code>add_edge()</code>. This edge will also be given a value for its <code>rel</code> attribute (<code>to_number</code>). After adding the edge to the graph, use the <code>get_edges()</code> function to show that the edge has been produced.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add an edge between nodes `1` and `2` and</span>
+<span class="co"># set the `rel` attribute as `to_number`</span>
+graph_edge_w_ids &lt;-<span class="st"> </span>
+<span class="st">  </span>graph_node_type_label %&gt;%
+<span class="st">  </span><span class="kw">add_edge</span>(
+    <span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">2</span>,
+    <span class="dt">rel =</span> <span class="st">&quot;to_number&quot;</span>)
+
+<span class="co"># Display the graph&#39;s edges (in the default</span>
+<span class="co"># string vector format with node IDs separated</span>
+<span class="co"># by arrows in this directed graph case)</span>
+graph_edge_w_ids %&gt;%<span class="st"> </span><span class="kw">get_edges</span>()</code></pre></div>
+<pre><code>## [1] &quot;1-&gt;2&quot;</code></pre>
+<p>Perhaps you don’t want to work directly with the node ID values and instead with unique node labels. This is a common practice as node ID values can be considered as less meaningful (they are not assigned by the user) but node labels and other attributes can give each node an identity and make nodes more distinguishable. In such a workflow, it’s easier to create edges based on the node <code>label</code> values. Supply the node labels as values for the <code>from</code> and <code>to</code> arguments and set <code>use_labels</code> to <code>TRUE</code>.</p>
+<p>To view the graph’s edges after the transformation, use <code>get_edges()</code> as before but, this time, use <code>return_values = &quot;label&quot;</code> to display the graph’s edges in terms of node <code>label</code> values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add an edge between the nodes with labels</span>
+<span class="co"># `one` (node `1`) and `two` (node `2`) and</span>
+<span class="co"># set the `rel` attribute as `to_number`</span>
+graph_edge_w_ids &lt;-<span class="st"> </span>
+<span class="st">  </span>graph_node_type_label %&gt;%
+<span class="st">  </span><span class="kw">add_edge</span>(
+    <span class="dt">from =</span> <span class="st">&quot;one&quot;</span>, <span class="dt">to =</span> <span class="st">&quot;two&quot;</span>,
+    <span class="dt">rel =</span> <span class="st">&quot;to_number&quot;</span>,
+    <span class="dt">use_labels =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># Display the graph&#39;s edges (as a string-based</span>
+<span class="co"># vector with pairs of node `label` values)</span>
+graph_edge_w_ids %&gt;%<span class="st"> </span><span class="kw">get_edges</span>(<span class="dt">return_values =</span> <span class="st">&quot;label&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;one-&gt;two&quot;</code></pre>
+<p>By default, the <code>get_edges()</code> function outputs the pairs of nodes in edges as a character vector (as above). There is also the option to return this information as a data frame (with 2 columns: <code>from</code> and <code>to</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the graph&#39;s edges as a data frame</span>
+<span class="kw">get_edges</span>(graph_edge_w_ids, <span class="dt">return_type =</span> <span class="st">&quot;df&quot;</span>)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">from</th>
+<th align="right">to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<p>The addition of a node and the creation of edges can also be performed in a single <code>add_node()</code> step. You can use either (or both) of the optional <code>from</code> and <code>to</code> arguments in the <code>add_node()</code> function. Let’s make various graph objects and see how both nodes and edges can be created with a single call to <code>add_node()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add initial node (ID `1`) and then</span>
+<span class="co"># add node `2` and edge `1-&gt;2`</span>
+graph_a &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>(<span class="dt">from =</span> <span class="dv">1</span>)
+
+<span class="co"># Add initial node (ID `1`) and then</span>
+<span class="co"># add node `2` and edge `2-&gt;1`</span>
+graph_b &lt;-
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>(<span class="dt">to =</span> <span class="dv">1</span>)
+
+<span class="co"># Add 2 initial nodes (IDs `1` and</span>
+<span class="co"># `2`) and then add node `3` and edges</span>
+<span class="co"># `2-&gt;3` and `3-&gt;1` </span>
+graph_c &lt;-
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>(<span class="dt">from =</span> <span class="dv">2</span>, <span class="dt">to =</span> <span class="dv">1</span>)
+
+<span class="co"># Get all of the edges available in</span>
+<span class="co"># each of the graphs created</span>
+<span class="kw">list</span>(<span class="dt">graph_a =</span> <span class="kw">get_edges</span>(graph_a),
+     <span class="dt">graph_b =</span> <span class="kw">get_edges</span>(graph_b),
+     <span class="dt">graph_c =</span> <span class="kw">get_edges</span>(graph_c))</code></pre></div>
+<pre><code>## $graph_a
+## [1] &quot;1-&gt;2&quot;
+## 
+## $graph_b
+## [1] &quot;2-&gt;1&quot;
+## 
+## $graph_c
+## [1] &quot;2-&gt;3&quot; &quot;3-&gt;1&quot;</code></pre>
+<p>There are many other ways to generate a node and connect that new node to existing nodes. The <code>from</code> and <code>to</code> arguments of <code>add_node()</code> also accept vectors of length greater than 1. So, a new node can be connected to or from multiple nodes already in the graph. To make an example of this more succinct, we can use the node creation function <code>add_n_nodes()</code>. Supplying a number for the <code>n</code> argument creates <em>n</em> nodes in the graph. The <code>add_n_nodes()</code> function has no means to create edges like <code>add_node()</code> but it’s a great way to simply add a lot of nodes to the graph with one function call. Below, an example of adding one node to many nodes:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a graph, add 5 nodes, and then</span>
+<span class="co"># add a node with edges to nodes `1` to `5`</span>
+graph_d &lt;-
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_n_nodes</span>(<span class="dt">n =</span> <span class="dv">5</span>) %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>(<span class="dt">to =</span> <span class="dv">1</span>:<span class="dv">5</span>)
+
+<span class="co"># View the graph in the RStudio Viewer</span>
+<span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_d)</code></pre></div>
+<div id="htmlwidget-54e1604bac33bba486ac" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-54e1604bac33bba486ac">{"x":{"diagram":"digraph {\n\ngraph [layout = \"neato\",\n       outputorder = \"edgesfirst\"]\n\nnode [fontname = \"Helvetica\",\n     fontsize = \"10\",\n     shape = \"circle\",\n     fixedsize = \"true\",\n     width = \"0.5\",\n     style = \"filled\",\n     fillcolor = \"aliceblue\",\n     color = \"gray70\",\n     fontcolor = \"gray50\"]\n\nedge [len = \"1.5\",\n     color = \"gray40\",\n     arrowsize = \"0.5\"]\n\n  \"1\"\n  \"2\"\n  \"3\"\n  \"4\"\n  \"5\"\n  \"6\"\n\"6\"->\"1\" [id = \"1\"] \n\"6\"->\"2\" [id = \"2\"] \n\"6\"->\"3\" [id = \"3\"] \n\"6\"->\"4\" [id = \"4\"] \n\"6\"->\"5\" [id = \"5\"] \n}","config":{"engine":["function (mat, widths = rep.int(1, ncol(mat)), heights = rep.int(1, ","    nrow(mat)), respect = FALSE) ","{","    storage.mode(mat) <- \"integer\"","    mat <- as.matrix(mat)","    if (!is.logical(respect)) {","        respect <- as.matrix(respect)","        if (!is.matrix(respect) || any(dim(respect) != dim(mat))) ","            stop(\"'respect' must be logical or matrix with same dimension as 'mat'\")","    }","    num.figures <- as.integer(max(mat))","    for (i in 1L:num.figures) if (match(i, mat, nomatch = 0L) == ","        0L) ","        stop(gettextf(\"layout matrix must contain at least one reference\\nto each of the values {1 ... %d}\\n\", ","            num.figures), domain = NA)","    dm <- dim(mat)","    num.rows <- dm[1L]","    num.cols <- dm[2L]","    cm.widths <- if (is.character(widths)) ","        grep(\"cm\", widths, fixed = TRUE)","    cm.heights <- if (is.character(heights)) ","        grep(\"cm\", heights, fixed = TRUE)","    pad1.rm.cm <- function(v, cm.v, len) {","        if ((ll <- length(v)) < len) ","            v <- c(v, rep.int(1, len - ll))","        if (is.character(v)) {","            wcm <- v[cm.v]","            v[cm.v] <- substring(wcm, 1L, nchar(wcm, type = \"c\") - ","                3)","            v <- chartr(getOption(\"OutDec\"), \".\", v)","        }","        as.numeric(v)","    }","    widths <- pad1.rm.cm(widths, cm.widths, len = num.cols)","    heights <- pad1.rm.cm(heights, cm.heights, len = num.rows)","    if (is.matrix(respect)) {","        respect.mat <- as.integer(respect)","        respect <- 2","    }","    else {","        respect.mat <- matrix(0L, num.rows, num.cols)","    }","    .External.graphics(C_layout, num.rows, num.cols, mat, as.integer(num.figures), ","        col.widths = widths, row.heights = heights, cm.widths, ","        cm.heights, respect = as.integer(respect), respect.mat)","    invisible(num.figures)","}"],"options":null}},"evals":[],"jsHooks":[]}</script>
+<p>While this works and produces the result that was intended, it’s slightly inconvenient. We have to mentally keep track of which node ID values were created and use those directly in the <code>from</code> or <code>to</code> arguments to create the edges. A better way is to capture a selection of nodes and perform graph transformations with an active selection:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a graph, add 5 nodes, set those nodes</span>
+<span class="co"># as a node selection, and then add a new node</span>
+<span class="co"># with edges to all nodes in the selection</span>
+graph_e &lt;-
+<span class="st">  </span><span class="kw">create_graph</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_n_nodes</span>(<span class="dt">n =</span> <span class="dv">5</span>) %&gt;%
+<span class="st">  </span><span class="kw">select_last_nodes_created</span>() %&gt;%
+<span class="st">  </span><span class="kw">add_node</span>(<span class="dt">to =</span> <span class="kw">get_selection</span>(.))
+
+<span class="co"># View the graph in the RStudio Viewer</span>
+<span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_e)</code></pre></div>
+<div id="htmlwidget-5433abc5cbd768f05a3a" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5433abc5cbd768f05a3a">{"x":{"diagram":"digraph {\n\ngraph [layout = \"neato\",\n       outputorder = \"edgesfirst\"]\n\nnode [fontname = \"Helvetica\",\n     fontsize = \"10\",\n     shape = \"circle\",\n     fixedsize = \"true\",\n     width = \"0.5\",\n     style = \"filled\",\n     fillcolor = \"aliceblue\",\n     color = \"gray70\",\n     fontcolor = \"gray50\"]\n\nedge [len = \"1.5\",\n     color = \"gray40\",\n     arrowsize = \"0.5\"]\n\n  \"1\"\n  \"2\"\n  \"3\"\n  \"4\"\n  \"5\"\n  \"6\"\n\"6\"->\"1\" [id = \"1\"] \n\"6\"->\"2\" [id = \"2\"] \n\"6\"->\"3\" [id = \"3\"] \n\"6\"->\"4\" [id = \"4\"] \n\"6\"->\"5\" [id = \"5\"] \n}","config":{"engine":["function (mat, widths = rep.int(1, ncol(mat)), heights = rep.int(1, ","    nrow(mat)), respect = FALSE) ","{","    storage.mode(mat) <- \"integer\"","    mat <- as.matrix(mat)","    if (!is.logical(respect)) {","        respect <- as.matrix(respect)","        if (!is.matrix(respect) || any(dim(respect) != dim(mat))) ","            stop(\"'respect' must be logical or matrix with same dimension as 'mat'\")","    }","    num.figures <- as.integer(max(mat))","    for (i in 1L:num.figures) if (match(i, mat, nomatch = 0L) == ","        0L) ","        stop(gettextf(\"layout matrix must contain at least one reference\\nto each of the values {1 ... %d}\\n\", ","            num.figures), domain = NA)","    dm <- dim(mat)","    num.rows <- dm[1L]","    num.cols <- dm[2L]","    cm.widths <- if (is.character(widths)) ","        grep(\"cm\", widths, fixed = TRUE)","    cm.heights <- if (is.character(heights)) ","        grep(\"cm\", heights, fixed = TRUE)","    pad1.rm.cm <- function(v, cm.v, len) {","        if ((ll <- length(v)) < len) ","            v <- c(v, rep.int(1, len - ll))","        if (is.character(v)) {","            wcm <- v[cm.v]","            v[cm.v] <- substring(wcm, 1L, nchar(wcm, type = \"c\") - ","                3)","            v <- chartr(getOption(\"OutDec\"), \".\", v)","        }","        as.numeric(v)","    }","    widths <- pad1.rm.cm(widths, cm.widths, len = num.cols)","    heights <- pad1.rm.cm(heights, cm.heights, len = num.rows)","    if (is.matrix(respect)) {","        respect.mat <- as.integer(respect)","        respect <- 2","    }","    else {","        respect.mat <- matrix(0L, num.rows, num.cols)","    }","    .External.graphics(C_layout, num.rows, num.cols, mat, as.integer(num.figures), ","        col.widths = widths, row.heights = heights, cm.widths, ","        cm.heights, respect = as.integer(respect), respect.mat)","    invisible(num.figures)","}"],"options":null}},"evals":[],"jsHooks":[]}</script>
+<p>This produces the same graph as before but, this time, we didn’t have to manually supply node ID values. The <code>select_last_nodes_created()</code> function simply made a selection of node ID values and we retrieved those IDs using the <code>get_selection()</code> function. The dot (<code>.</code>) as the sole argument referred to the graph itself, which is needed for the <code>graph</code> argument to <code>get_selection</code>.</p>
+<p>While the graph was constructed to our specification, the nodes and the edges within that graph do not have their basic attributes filled with values. We can check this using <code>get_node_df()</code> and <code>get_edges_df()</code> and we see that values for the <code>type</code>, <code>label</code>, and <code>rel</code> attributes are all <code>NA</code> values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_node_df</span>(<span class="dt">graph =</span> graph_e)</code></pre></div>
+<pre><code>##   id type label
+## 1  1 &lt;NA&gt;  &lt;NA&gt;
+## 2  2 &lt;NA&gt;  &lt;NA&gt;
+## 3  3 &lt;NA&gt;  &lt;NA&gt;
+## 4  4 &lt;NA&gt;  &lt;NA&gt;
+## 5  5 &lt;NA&gt;  &lt;NA&gt;
+## 6  6 &lt;NA&gt;  &lt;NA&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_edge_df</span>(<span class="dt">graph =</span> graph_e)</code></pre></div>
+<pre><code>##   id from to  rel
+## 1  1    6  1 &lt;NA&gt;
+## 2  2    6  2 &lt;NA&gt;
+## 3  3    6  3 &lt;NA&gt;
+## 4  4    6  4 &lt;NA&gt;
+## 5  5    6  5 &lt;NA&gt;</code></pre>
+<p>These values can be added later. All <code>type</code> and <code>label</code> values for nodes can be specified using <code>set_node_attrs()</code>. Likewise, all <code>rel</code> values for edges can be set with the <code>set_edge_attrs()</code> function. To do this unconditionally to all nodes and edges in the graph:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graph_f &lt;-
+<span class="st">  </span>graph_e %&gt;%
+<span class="st">  </span><span class="kw">set_node_attrs</span>(
+    <span class="dt">node_attr =</span> <span class="st">&quot;label&quot;</span>,
+    <span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;one&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;three&quot;</span>,
+               <span class="st">&quot;four&quot;</span>, <span class="st">&quot;five&quot;</span>, <span class="st">&quot;six&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">set_node_attrs</span>(
+    <span class="dt">node_attr =</span> <span class="st">&quot;type&quot;</span>,
+    <span class="dt">value =</span> <span class="st">&quot;a&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">set_edge_attrs</span>(
+    <span class="dt">edge_attr =</span> <span class="st">&quot;rel&quot;</span>,
+    <span class="dt">values =</span> <span class="st">&quot;to_number&quot;</span>)</code></pre></div>
+<p>To verify that the changes were applied, use the <code>get_node_df()</code> and <code>get_edge_df()</code> function to output the graph’s internal node and edge data frames.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_node_df</span>(graph_f)</code></pre></div>
+<pre><code>##   id type label
+## 1  1    a   one
+## 2  2    a   two
+## 3  3    a three
+## 4  4    a  four
+## 5  5    a  five
+## 6  6    a   six</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_edge_df</span>(graph_f)</code></pre></div>
+<pre><code>##   id from to       rel
+## 1  1    6  1 to_number
+## 2  2    6  2 to_number
+## 3  3    6  3 to_number
+## 4  4    6  4 to_number
+## 5  5    6  5 to_number</code></pre>
+<p>Alternatively, we can use the <code>get_node_attrs()</code> and <code>get_edge_attrs()</code> functions to look at individual attribute values for graph nodes and edges. By supplying the graph object and the name of the attribute (e.g., <code>type</code> for nodes, <code>rel</code> for edges), we get a named vector of node or edge attribute values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get a vector of values for the `type` node</span>
+<span class="co"># attribute; this returns a named vector (where</span>
+<span class="co"># the names are the node ID values)</span>
+type_node_attr_values &lt;-
+<span class="st">  </span><span class="kw">get_node_attrs</span>(<span class="dt">x =</span> graph_f, <span class="dt">node_attr =</span> <span class="st">&quot;type&quot;</span>)
+
+<span class="co"># Get a vector of values for the `rel` edge</span>
+<span class="co"># attribute; this also returns a named vector</span>
+<span class="co"># (where the names are the edge definitions)</span>
+rel_edge_attr_values &lt;-
+<span class="st">  </span><span class="kw">get_edge_attrs</span>(<span class="dt">x =</span> graph_f, <span class="dt">edge_attr =</span> <span class="st">&quot;rel&quot;</span>)
+
+<span class="co"># Place these node and edge attribute vectors in</span>
+<span class="co"># a list and display it</span>
+<span class="kw">list</span>(<span class="dt">type_node_attr_values =</span> type_node_attr_values,
+     <span class="dt">rel_edge_attr_values =</span> rel_edge_attr_values)</code></pre></div>
+<pre><code>## $type_node_attr_values
+##   1   2   3   4   5   6 
+## &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;a&quot; 
+## 
+## $rel_edge_attr_values
+##        6-&gt;1        6-&gt;2        6-&gt;3        6-&gt;4        6-&gt;5 
+## &quot;to_number&quot; &quot;to_number&quot; &quot;to_number&quot; &quot;to_number&quot; &quot;to_number&quot;</code></pre>
+<p>View the graph again to see that all edges are labeled with the <code>to_number</code> <code>rel</code> edge attribute. We will render the graph using <code>output = visNetwork</code> since that rendering method automatically includes node <code>label</code> and edge <code>rel</code> values (but not the edge <code>type</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">render_graph</span>(<span class="dt">graph =</span> graph_f, <span class="dt">output =</span> <span class="st">&quot;visNetwork&quot;</span>)</code></pre></div>
+<div id="htmlwidget-7378df06a2daa4417ac5" style="width:80%;height:504px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7378df06a2daa4417ac5">{"x":{"nodes":{"id":[1,2,3,4,5,6],"group":["a","a","a","a","a","a"],"label":["one","two","three","four","five","six"]},"edges":{"id":[1,2,3,4,5],"from":[6,6,6,6,6],"to":[1,2,3,4,5],"label":["to_number","to_number","to_number","to_number","to_number"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":{"enabled":true,"scaleFactor":1}}},"physics":{"stabilization":{"enabled":true,"onlyDynamicEdges":false,"fit":true}},"layout":{"improvedLayout":true}},"groups":"a","width":null,"height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null},"evals":[],"jsHooks":[]}</script>
+<p>Go ahead, play with the graph by dragging nodes this way and that way. It’s fun! Graphs should always be this fun…</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="attrs.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

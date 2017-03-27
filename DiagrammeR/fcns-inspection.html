@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The DiagrammeR Package</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Contains information on how to use the DiagrammeR package for R.">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="The DiagrammeR Package" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Contains information on how to use the DiagrammeR package for R." />
+  <meta name="github-repo" content="rich-iannone/DiagrammeR-docs" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The DiagrammeR Package" />
+  <meta name="twitter:site" content="@riannone" />
+  <meta name="twitter:description" content="Contains information on how to use the DiagrammeR package for R." />
+  
+
+<meta name="author" content="Richard Iannone">
+
+
+<meta name="date" content="2017-03-26">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="fcns-traversals.html">
+<link rel="next" href="fcns-modification.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-0.8/htmlwidgets.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-0.9.1/grViz.js"></script>
+<link href="libs/vis-4.17.0/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.17.0/vis.min.js"></script>
+<script src="libs/visNetwork-binding-1.0.3/visNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="dgr-docs.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">The DiagrammeR Package</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>This book is not yet finished</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#why-model-data-as-a-graph"><i class="fa fa-check"></i><b>1.1</b> Why Model Data as a Graph?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#the-diagrammer-graph-object"><i class="fa fa-check"></i><b>1.2</b> The DiagrammeR Graph Object</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="creation.html"><a href="creation.html"><i class="fa fa-check"></i><b>2</b> Graph Creation</a><ul>
+<li class="chapter" data-level="2.1" data-path="creation.html"><a href="creation.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="2.2" data-path="creation.html"><a href="creation.html#visualizing-a-simple-graph"><i class="fa fa-check"></i><b>2.2</b> Visualizing a Simple Graph</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="creation.html"><a href="creation.html#creating-nodes"><i class="fa fa-check"></i><b>2.2.1</b> Creating Nodes</a></li>
+<li class="chapter" data-level="2.2.2" data-path="creation.html"><a href="creation.html#viewing-the-graph"><i class="fa fa-check"></i><b>2.2.2</b> Viewing the Graph</a></li>
+<li class="chapter" data-level="2.2.3" data-path="creation.html"><a href="creation.html#piping-has-its-advantages"><i class="fa fa-check"></i><b>2.2.3</b> Piping Has Its Advantages</a></li>
+<li class="chapter" data-level="2.2.4" data-path="creation.html"><a href="creation.html#adding-edges"><i class="fa fa-check"></i><b>2.2.4</b> Adding Edges</a></li>
+<li class="chapter" data-level="2.2.5" data-path="creation.html"><a href="creation.html#deleting-graph-elements"><i class="fa fa-check"></i><b>2.2.5</b> Deleting Graph Elements</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="creation.html"><a href="creation.html#using-data-frames"><i class="fa fa-check"></i><b>2.3</b> Using Data Frames</a></li>
+<li class="chapter" data-level="2.4" data-path="creation.html"><a href="creation.html#adding-basic-attributes"><i class="fa fa-check"></i><b>2.4</b> Adding Basic Attributes</a></li>
+<li class="chapter" data-level="2.5" data-path="creation.html"><a href="creation.html#the-internal-ndfedf"><i class="fa fa-check"></i><b>2.5</b> The Internal NDF/EDF</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="attrs.html"><a href="attrs.html"><i class="fa fa-check"></i><b>3</b> Graph Attributes</a><ul>
+<li class="chapter" data-level="3.1" data-path="attrs.html"><a href="attrs.html#external-ndfs-and-edfs"><i class="fa fa-check"></i><b>3.1</b> External NDFs and EDFs</a></li>
+<li class="chapter" data-level="3.2" data-path="attrs.html"><a href="attrs.html#internal-ndfs-and-edfs"><i class="fa fa-check"></i><b>3.2</b> Internal NDFs and EDFs</a></li>
+<li class="chapter" data-level="3.3" data-path="attrs.html"><a href="attrs.html#specific-nodes-or-edges"><i class="fa fa-check"></i><b>3.3</b> Specific Nodes or Edges</a></li>
+<li class="chapter" data-level="3.4" data-path="attrs.html"><a href="attrs.html#adding-attributes-to-selections"><i class="fa fa-check"></i><b>3.4</b> Adding Attributes to Selections</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="selections.html"><a href="selections.html"><i class="fa fa-check"></i><b>4</b> Selections</a><ul>
+<li class="chapter" data-level="4.1" data-path="selections.html"><a href="selections.html#setup-for-this-chapter"><i class="fa fa-check"></i><b>4.1</b> Setup for this Chapter</a></li>
+<li class="chapter" data-level="4.2" data-path="selections.html"><a href="selections.html#the-selection-functions"><i class="fa fa-check"></i><b>4.2</b> The Selection Functions</a></li>
+<li class="chapter" data-level="4.3" data-path="selections.html"><a href="selections.html#creating-a-node-selection"><i class="fa fa-check"></i><b>4.3</b> Creating a Node Selection</a></li>
+<li class="chapter" data-level="4.4" data-path="selections.html"><a href="selections.html#creating-an-edge-selection"><i class="fa fa-check"></i><b>4.4</b> Creating an Edge Selection</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="fcns-creation.html"><a href="fcns-creation.html"><i class="fa fa-check"></i><b>5</b> Functions: Creation, I/O</a><ul>
+<li class="chapter" data-level="5.1" data-path="fcns-creation.html"><a href="fcns-creation.html#create_node_df"><i class="fa fa-check"></i><b>5.1</b> <code>create_node_df()</code></a></li>
+<li class="chapter" data-level="5.2" data-path="fcns-creation.html"><a href="fcns-creation.html#create_edge_df"><i class="fa fa-check"></i><b>5.2</b> <code>create_edge_df()</code></a></li>
+<li class="chapter" data-level="5.3" data-path="fcns-creation.html"><a href="fcns-creation.html#combine_ndfs"><i class="fa fa-check"></i><b>5.3</b> <code>combine_ndfs()</code></a></li>
+<li class="chapter" data-level="5.4" data-path="fcns-creation.html"><a href="fcns-creation.html#combine_edfs"><i class="fa fa-check"></i><b>5.4</b> <code>combine_edfs()</code></a></li>
+<li class="chapter" data-level="5.5" data-path="fcns-creation.html"><a href="fcns-creation.html#create_graph"><i class="fa fa-check"></i><b>5.5</b> <code>create_graph()</code></a></li>
+<li class="chapter" data-level="5.6" data-path="fcns-creation.html"><a href="fcns-creation.html#create_random_graph"><i class="fa fa-check"></i><b>5.6</b> <code>create_random_graph()</code></a></li>
+<li class="chapter" data-level="5.7" data-path="fcns-creation.html"><a href="fcns-creation.html#combine_graphs"><i class="fa fa-check"></i><b>5.7</b> <code>combine_graphs()</code></a></li>
+<li class="chapter" data-level="5.8" data-path="fcns-creation.html"><a href="fcns-creation.html#import_graph"><i class="fa fa-check"></i><b>5.8</b> <code>import_graph()</code></a></li>
+<li class="chapter" data-level="5.9" data-path="fcns-creation.html"><a href="fcns-creation.html#from_adj_matrix"><i class="fa fa-check"></i><b>5.9</b> <code>from_adj_matrix()</code></a></li>
+<li class="chapter" data-level="5.10" data-path="fcns-creation.html"><a href="fcns-creation.html#from_igraph"><i class="fa fa-check"></i><b>5.10</b> <code>from_igraph()</code></a></li>
+<li class="chapter" data-level="5.11" data-path="fcns-creation.html"><a href="fcns-creation.html#to_igraph"><i class="fa fa-check"></i><b>5.11</b> <code>to_igraph()</code></a></li>
+<li class="chapter" data-level="5.12" data-path="fcns-creation.html"><a href="fcns-creation.html#render_graph"><i class="fa fa-check"></i><b>5.12</b> <code>render_graph()</code></a></li>
+<li class="chapter" data-level="5.13" data-path="fcns-creation.html"><a href="fcns-creation.html#export_graph"><i class="fa fa-check"></i><b>5.13</b> <code>export_graph()</code></a></li>
+<li class="chapter" data-level="5.14" data-path="fcns-creation.html"><a href="fcns-creation.html#export_csv"><i class="fa fa-check"></i><b>5.14</b> <code>export_csv()</code></a></li>
+<li class="chapter" data-level="5.15" data-path="fcns-creation.html"><a href="fcns-creation.html#save_graph"><i class="fa fa-check"></i><b>5.15</b> <code>save_graph()</code></a></li>
+<li class="chapter" data-level="5.16" data-path="fcns-creation.html"><a href="fcns-creation.html#open_graph"><i class="fa fa-check"></i><b>5.16</b> <code>open_graph()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="fcns-selection.html"><a href="fcns-selection.html"><i class="fa fa-check"></i><b>6</b> Functions: Selection</a><ul>
+<li class="chapter" data-level="6.1" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes"><i class="fa fa-check"></i><b>6.1</b> <code>select_nodes()</code></a></li>
+<li class="chapter" data-level="6.2" data-path="fcns-selection.html"><a href="fcns-selection.html#select_edges"><i class="fa fa-check"></i><b>6.2</b> <code>select_edges()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="fcns-selection.html"><a href="fcns-selection.html#select_last_nodes_created"><i class="fa fa-check"></i><b>6.3</b> <code>select_last_nodes_created()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="fcns-selection.html"><a href="fcns-selection.html#select_last_edges_created"><i class="fa fa-check"></i><b>6.4</b> <code>select_last_edges_created()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes_by_id"><i class="fa fa-check"></i><b>6.5</b> <code>select_nodes_by_id()</code></a></li>
+<li class="chapter" data-level="6.6" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes_in_neighborhood"><i class="fa fa-check"></i><b>6.6</b> <code>select_nodes_in_neighborhood()</code></a></li>
+<li class="chapter" data-level="6.7" data-path="fcns-selection.html"><a href="fcns-selection.html#select_nodes_by_degree"><i class="fa fa-check"></i><b>6.7</b> <code>select_nodes_by_degree()</code></a></li>
+<li class="chapter" data-level="6.8" data-path="fcns-selection.html"><a href="fcns-selection.html#select_edges_by_edge_id"><i class="fa fa-check"></i><b>6.8</b> <code>select_edges_by_edge_id()</code></a></li>
+<li class="chapter" data-level="6.9" data-path="fcns-selection.html"><a href="fcns-selection.html#select_edges_by_node_id"><i class="fa fa-check"></i><b>6.9</b> <code>select_edges_by_node_id()</code></a></li>
+<li class="chapter" data-level="6.10" data-path="fcns-selection.html"><a href="fcns-selection.html#invert_selection"><i class="fa fa-check"></i><b>6.10</b> <code>invert_selection()</code></a></li>
+<li class="chapter" data-level="6.11" data-path="fcns-selection.html"><a href="fcns-selection.html#clear_selection"><i class="fa fa-check"></i><b>6.11</b> <code>clear_selection()</code></a></li>
+<li class="chapter" data-level="6.12" data-path="fcns-selection.html"><a href="fcns-selection.html#get_selection"><i class="fa fa-check"></i><b>6.12</b> <code>get_selection()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fcns-traversals.html"><a href="fcns-traversals.html"><i class="fa fa-check"></i><b>7</b> Functions: Traversals</a><ul>
+<li class="chapter" data-level="7.1" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_out"><i class="fa fa-check"></i><b>7.1</b> <code>trav_out()</code></a></li>
+<li class="chapter" data-level="7.2" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_in"><i class="fa fa-check"></i><b>7.2</b> <code>trav_in()</code></a></li>
+<li class="chapter" data-level="7.3" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_both"><i class="fa fa-check"></i><b>7.3</b> <code>trav_both()</code></a></li>
+<li class="chapter" data-level="7.4" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_out_edge"><i class="fa fa-check"></i><b>7.4</b> <code>trav_out_edge()</code></a></li>
+<li class="chapter" data-level="7.5" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_in_edge"><i class="fa fa-check"></i><b>7.5</b> <code>trav_in_edge()</code></a></li>
+<li class="chapter" data-level="7.6" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_both_edge"><i class="fa fa-check"></i><b>7.6</b> <code>trav_both_edge()</code></a></li>
+<li class="chapter" data-level="7.7" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_out_node"><i class="fa fa-check"></i><b>7.7</b> <code>trav_out_node()</code></a></li>
+<li class="chapter" data-level="7.8" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_in_node"><i class="fa fa-check"></i><b>7.8</b> <code>trav_in_node()</code></a></li>
+<li class="chapter" data-level="7.9" data-path="fcns-traversals.html"><a href="fcns-traversals.html#trav_reverse_edge"><i class="fa fa-check"></i><b>7.9</b> <code>trav_reverse_edge()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fcns-inspection.html"><a href="fcns-inspection.html"><i class="fa fa-check"></i><b>8</b> Functions: Inspection</a><ul>
+<li class="chapter" data-level="8.1" data-path="fcns-inspection.html"><a href="fcns-inspection.html#node_info"><i class="fa fa-check"></i><b>8.1</b> <code>node_info()</code></a></li>
+<li class="chapter" data-level="8.2" data-path="fcns-inspection.html"><a href="fcns-inspection.html#edge_info"><i class="fa fa-check"></i><b>8.2</b> <code>edge_info()</code></a></li>
+<li class="chapter" data-level="8.3" data-path="fcns-inspection.html"><a href="fcns-inspection.html#graph_info"><i class="fa fa-check"></i><b>8.3</b> <code>graph_info()</code></a></li>
+<li class="chapter" data-level="8.4" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_node_ids"><i class="fa fa-check"></i><b>8.4</b> <code>get_node_ids()</code></a></li>
+<li class="chapter" data-level="8.5" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_edge_ids"><i class="fa fa-check"></i><b>8.5</b> <code>get_edge_ids()</code></a></li>
+<li class="chapter" data-level="8.6" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_edges"><i class="fa fa-check"></i><b>8.6</b> <code>get_edges()</code></a></li>
+<li class="chapter" data-level="8.7" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_predecessors"><i class="fa fa-check"></i><b>8.7</b> <code>get_predecessors()</code></a></li>
+<li class="chapter" data-level="8.8" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_successors"><i class="fa fa-check"></i><b>8.8</b> <code>get_successors()</code></a></li>
+<li class="chapter" data-level="8.9" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_node_df"><i class="fa fa-check"></i><b>8.9</b> <code>get_node_df()</code></a></li>
+<li class="chapter" data-level="8.10" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_edge_df"><i class="fa fa-check"></i><b>8.10</b> <code>get_edge_df()</code></a></li>
+<li class="chapter" data-level="8.11" data-path="fcns-inspection.html"><a href="fcns-inspection.html#node_count"><i class="fa fa-check"></i><b>8.11</b> <code>node_count()</code></a></li>
+<li class="chapter" data-level="8.12" data-path="fcns-inspection.html"><a href="fcns-inspection.html#edge_count"><i class="fa fa-check"></i><b>8.12</b> <code>edge_count()</code></a></li>
+<li class="chapter" data-level="8.13" data-path="fcns-inspection.html"><a href="fcns-inspection.html#node_present"><i class="fa fa-check"></i><b>8.13</b> <code>node_present()</code></a></li>
+<li class="chapter" data-level="8.14" data-path="fcns-inspection.html"><a href="fcns-inspection.html#edge_present"><i class="fa fa-check"></i><b>8.14</b> <code>edge_present()</code></a></li>
+<li class="chapter" data-level="8.15" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_graph_empty"><i class="fa fa-check"></i><b>8.15</b> <code>is_graph_empty()</code></a></li>
+<li class="chapter" data-level="8.16" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_graph_directed"><i class="fa fa-check"></i><b>8.16</b> <code>is_graph_directed()</code></a></li>
+<li class="chapter" data-level="8.17" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_graph_connected"><i class="fa fa-check"></i><b>8.17</b> <code>is_graph_connected()</code></a></li>
+<li class="chapter" data-level="8.18" data-path="fcns-inspection.html"><a href="fcns-inspection.html#is_property_graph"><i class="fa fa-check"></i><b>8.18</b> <code>is_property_graph()</code></a></li>
+<li class="chapter" data-level="8.19" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_in"><i class="fa fa-check"></i><b>8.19</b> <code>get_degree_in()</code></a></li>
+<li class="chapter" data-level="8.20" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_out"><i class="fa fa-check"></i><b>8.20</b> <code>get_degree_out()</code></a></li>
+<li class="chapter" data-level="8.21" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_total"><i class="fa fa-check"></i><b>8.21</b> <code>get_degree_total()</code></a></li>
+<li class="chapter" data-level="8.22" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_histogram"><i class="fa fa-check"></i><b>8.22</b> <code>get_degree_histogram()</code></a></li>
+<li class="chapter" data-level="8.23" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_degree_distribution"><i class="fa fa-check"></i><b>8.23</b> <code>get_degree_distribution()</code></a></li>
+<li class="chapter" data-level="8.24" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_graph_diameter"><i class="fa fa-check"></i><b>8.24</b> <code>get_graph_diameter()</code></a></li>
+<li class="chapter" data-level="8.25" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_constraint"><i class="fa fa-check"></i><b>8.25</b> <code>get_constraint()</code></a></li>
+<li class="chapter" data-level="8.26" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_betweenness"><i class="fa fa-check"></i><b>8.26</b> <code>get_betweenness()</code></a></li>
+<li class="chapter" data-level="8.27" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_closeness"><i class="fa fa-check"></i><b>8.27</b> <code>get_closeness()</code></a></li>
+<li class="chapter" data-level="8.28" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_bridging"><i class="fa fa-check"></i><b>8.28</b> <code>get_bridging()</code></a></li>
+<li class="chapter" data-level="8.29" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_eccentricity"><i class="fa fa-check"></i><b>8.29</b> <code>get_eccentricity()</code></a></li>
+<li class="chapter" data-level="8.30" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_jaccard_similarity"><i class="fa fa-check"></i><b>8.30</b> <code>get_jaccard_similarity()</code></a></li>
+<li class="chapter" data-level="8.31" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_dice_similarity"><i class="fa fa-check"></i><b>8.31</b> <code>get_dice_similarity()</code></a></li>
+<li class="chapter" data-level="8.32" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_periphery"><i class="fa fa-check"></i><b>8.32</b> <code>get_periphery()</code></a></li>
+<li class="chapter" data-level="8.33" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_walktrap"><i class="fa fa-check"></i><b>8.33</b> <code>get_cmty_walktrap()</code></a></li>
+<li class="chapter" data-level="8.34" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_louvain"><i class="fa fa-check"></i><b>8.34</b> <code>get_cmty_louvain()</code></a></li>
+<li class="chapter" data-level="8.35" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_l_eigenvector"><i class="fa fa-check"></i><b>8.35</b> <code>get_cmty_l_eigenvector()</code></a></li>
+<li class="chapter" data-level="8.36" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_fast_greedy"><i class="fa fa-check"></i><b>8.36</b> <code>get_cmty_fast_greedy()</code></a></li>
+<li class="chapter" data-level="8.37" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_cmty_edge_btwns"><i class="fa fa-check"></i><b>8.37</b> <code>get_cmty_edge_btwns()</code></a></li>
+<li class="chapter" data-level="8.38" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_nbrs"><i class="fa fa-check"></i><b>8.38</b> <code>get_nbrs()</code></a></li>
+<li class="chapter" data-level="8.39" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_non_nbrs"><i class="fa fa-check"></i><b>8.39</b> <code>get_non_nbrs()</code></a></li>
+<li class="chapter" data-level="8.40" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_common_neighbors"><i class="fa fa-check"></i><b>8.40</b> <code>get_common_neighbors()</code></a></li>
+<li class="chapter" data-level="8.41" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_similar_nbrs"><i class="fa fa-check"></i><b>8.41</b> <code>get_similar_nbrs()</code></a></li>
+<li class="chapter" data-level="8.42" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_paths"><i class="fa fa-check"></i><b>8.42</b> <code>get_paths()</code></a></li>
+<li class="chapter" data-level="8.43" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_w_connected_cmpts"><i class="fa fa-check"></i><b>8.43</b> <code>get_w_connected_cmpts()</code></a></li>
+<li class="chapter" data-level="8.44" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_s_connected_cmpts"><i class="fa fa-check"></i><b>8.44</b> <code>get_s_connected_cmpts()</code></a></li>
+<li class="chapter" data-level="8.45" data-path="fcns-inspection.html"><a href="fcns-inspection.html#get_articulation_points"><i class="fa fa-check"></i><b>8.45</b> <code>get_articulation_points()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="fcns-modification.html"><a href="fcns-modification.html"><i class="fa fa-check"></i><b>9</b> Functions: Modification</a><ul>
+<li class="chapter" data-level="9.1" data-path="fcns-modification.html"><a href="fcns-modification.html#add_node"><i class="fa fa-check"></i><b>9.1</b> <code>add_node()</code></a></li>
+<li class="chapter" data-level="9.2" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edge"><i class="fa fa-check"></i><b>9.2</b> <code>add_edge()</code></a></li>
+<li class="chapter" data-level="9.3" data-path="fcns-modification.html"><a href="fcns-modification.html#add_node_df"><i class="fa fa-check"></i><b>9.3</b> <code>add_node_df()</code></a></li>
+<li class="chapter" data-level="9.4" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edge_df"><i class="fa fa-check"></i><b>9.4</b> <code>add_edge_df()</code></a></li>
+<li class="chapter" data-level="9.5" data-path="fcns-modification.html"><a href="fcns-modification.html#add_n_nodes"><i class="fa fa-check"></i><b>9.5</b> <code>add_n_nodes()</code></a></li>
+<li class="chapter" data-level="9.6" data-path="fcns-modification.html"><a href="fcns-modification.html#add_n_nodes_ws"><i class="fa fa-check"></i><b>9.6</b> <code>add_n_nodes_ws()</code></a></li>
+<li class="chapter" data-level="9.7" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edges_w_string"><i class="fa fa-check"></i><b>9.7</b> <code>add_edges_w_string()</code></a></li>
+<li class="chapter" data-level="9.8" data-path="fcns-modification.html"><a href="fcns-modification.html#rev_edge_dir"><i class="fa fa-check"></i><b>9.8</b> <code>rev_edge_dir()</code></a></li>
+<li class="chapter" data-level="9.9" data-path="fcns-modification.html"><a href="fcns-modification.html#rev_edge_dir_ws"><i class="fa fa-check"></i><b>9.9</b> <code>rev_edge_dir_ws()</code></a></li>
+<li class="chapter" data-level="9.10" data-path="fcns-modification.html"><a href="fcns-modification.html#add_nodes_from_table"><i class="fa fa-check"></i><b>9.10</b> <code>add_nodes_from_table()</code></a></li>
+<li class="chapter" data-level="9.11" data-path="fcns-modification.html"><a href="fcns-modification.html#add_edges_from_table"><i class="fa fa-check"></i><b>9.11</b> <code>add_edges_from_table()</code></a></li>
+<li class="chapter" data-level="9.12" data-path="fcns-modification.html"><a href="fcns-modification.html#add_nodes_from_df_cols"><i class="fa fa-check"></i><b>9.12</b> <code>add_nodes_from_df_cols()</code></a></li>
+<li class="chapter" data-level="9.13" data-path="fcns-modification.html"><a href="fcns-modification.html#add_path"><i class="fa fa-check"></i><b>9.13</b> <code>add_path()</code></a></li>
+<li class="chapter" data-level="9.14" data-path="fcns-modification.html"><a href="fcns-modification.html#add_cycle"><i class="fa fa-check"></i><b>9.14</b> <code>add_cycle()</code></a></li>
+<li class="chapter" data-level="9.15" data-path="fcns-modification.html"><a href="fcns-modification.html#add_star"><i class="fa fa-check"></i><b>9.15</b> <code>add_star()</code></a></li>
+<li class="chapter" data-level="9.16" data-path="fcns-modification.html"><a href="fcns-modification.html#add_prism"><i class="fa fa-check"></i><b>9.16</b> <code>add_prism()</code></a></li>
+<li class="chapter" data-level="9.17" data-path="fcns-modification.html"><a href="fcns-modification.html#add_balanced_tree"><i class="fa fa-check"></i><b>9.17</b> <code>add_balanced_tree()</code></a></li>
+<li class="chapter" data-level="9.18" data-path="fcns-modification.html"><a href="fcns-modification.html#add_full_graph"><i class="fa fa-check"></i><b>9.18</b> <code>add_full_graph()</code></a></li>
+<li class="chapter" data-level="9.19" data-path="fcns-modification.html"><a href="fcns-modification.html#join_node_attrs"><i class="fa fa-check"></i><b>9.19</b> <code>join_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.20" data-path="fcns-modification.html"><a href="fcns-modification.html#join_edge_attrs"><i class="fa fa-check"></i><b>9.20</b> <code>join_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.21" data-path="fcns-modification.html"><a href="fcns-modification.html#set_graph_undirected"><i class="fa fa-check"></i><b>9.21</b> <code>set_graph_undirected()</code></a></li>
+<li class="chapter" data-level="9.22" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_node"><i class="fa fa-check"></i><b>9.22</b> <code>delete_node()</code></a></li>
+<li class="chapter" data-level="9.23" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_edge"><i class="fa fa-check"></i><b>9.23</b> <code>delete_edge()</code></a></li>
+<li class="chapter" data-level="9.24" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_nodes_ws"><i class="fa fa-check"></i><b>9.24</b> <code>delete_nodes_ws()</code></a></li>
+<li class="chapter" data-level="9.25" data-path="fcns-modification.html"><a href="fcns-modification.html#delete_edges_ws"><i class="fa fa-check"></i><b>9.25</b> <code>delete_edges_ws()</code></a></li>
+<li class="chapter" data-level="9.26" data-path="fcns-modification.html"><a href="fcns-modification.html#node_type"><i class="fa fa-check"></i><b>9.26</b> <code>node_type()</code></a></li>
+<li class="chapter" data-level="9.27" data-path="fcns-modification.html"><a href="fcns-modification.html#edge_rel"><i class="fa fa-check"></i><b>9.27</b> <code>edge_rel()</code></a></li>
+<li class="chapter" data-level="9.28" data-path="fcns-modification.html"><a href="fcns-modification.html#create_subgraph_ws"><i class="fa fa-check"></i><b>9.28</b> <code>create_subgraph_ws()</code></a></li>
+<li class="chapter" data-level="9.29" data-path="fcns-modification.html"><a href="fcns-modification.html#get_min_spanning_tree"><i class="fa fa-check"></i><b>9.29</b> <code>get_min_spanning_tree()</code></a></li>
+<li class="chapter" data-level="9.30" data-path="fcns-modification.html"><a href="fcns-modification.html#set_df_as_node_attr"><i class="fa fa-check"></i><b>9.30</b> <code>set_df_as_node_attr()</code></a></li>
+<li class="chapter" data-level="9.31" data-path="fcns-modification.html"><a href="fcns-modification.html#set_df_as_edge_attr"><i class="fa fa-check"></i><b>9.31</b> <code>set_df_as_edge_attr()</code></a></li>
+<li class="chapter" data-level="9.32" data-path="fcns-modification.html"><a href="fcns-modification.html#set_node_attrs"><i class="fa fa-check"></i><b>9.32</b> <code>set_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.33" data-path="fcns-modification.html"><a href="fcns-modification.html#set_edge_attrs"><i class="fa fa-check"></i><b>9.33</b> <code>set_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.34" data-path="fcns-modification.html"><a href="fcns-modification.html#set_node_attrs_ws"><i class="fa fa-check"></i><b>9.34</b> <code>set_node_attrs_ws()</code></a></li>
+<li class="chapter" data-level="9.35" data-path="fcns-modification.html"><a href="fcns-modification.html#set_edge_attrs_ws"><i class="fa fa-check"></i><b>9.35</b> <code>set_edge_attrs_ws()</code></a></li>
+<li class="chapter" data-level="9.36" data-path="fcns-modification.html"><a href="fcns-modification.html#copy_node_attrs"><i class="fa fa-check"></i><b>9.36</b> <code>copy_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.37" data-path="fcns-modification.html"><a href="fcns-modification.html#copy_edge_attrs"><i class="fa fa-check"></i><b>9.37</b> <code>copy_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.38" data-path="fcns-modification.html"><a href="fcns-modification.html#drop_node_attrs"><i class="fa fa-check"></i><b>9.38</b> <code>drop_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.39" data-path="fcns-modification.html"><a href="fcns-modification.html#drop_edge_attrs"><i class="fa fa-check"></i><b>9.39</b> <code>drop_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.40" data-path="fcns-modification.html"><a href="fcns-modification.html#rename_node_attrs"><i class="fa fa-check"></i><b>9.40</b> <code>rename_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.41" data-path="fcns-modification.html"><a href="fcns-modification.html#rename_edge_attrs"><i class="fa fa-check"></i><b>9.41</b> <code>rename_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.42" data-path="fcns-modification.html"><a href="fcns-modification.html#rescale_node_attrs"><i class="fa fa-check"></i><b>9.42</b> <code>rescale_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.43" data-path="fcns-modification.html"><a href="fcns-modification.html#rescale_edge_attrs"><i class="fa fa-check"></i><b>9.43</b> <code>rescale_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.44" data-path="fcns-modification.html"><a href="fcns-modification.html#mutate_node_attrs"><i class="fa fa-check"></i><b>9.44</b> <code>mutate_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.45" data-path="fcns-modification.html"><a href="fcns-modification.html#mutate_edge_attrs"><i class="fa fa-check"></i><b>9.45</b> <code>mutate_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.46" data-path="fcns-modification.html"><a href="fcns-modification.html#recode_node_attrs"><i class="fa fa-check"></i><b>9.46</b> <code>recode_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.47" data-path="fcns-modification.html"><a href="fcns-modification.html#recode_edge_attrs"><i class="fa fa-check"></i><b>9.47</b> <code>recode_edge_attrs()</code></a></li>
+<li class="chapter" data-level="9.48" data-path="fcns-modification.html"><a href="fcns-modification.html#colorize_node_attrs"><i class="fa fa-check"></i><b>9.48</b> <code>colorize_node_attrs()</code></a></li>
+<li class="chapter" data-level="9.49" data-path="fcns-modification.html"><a href="fcns-modification.html#colorize_edge_attrs"><i class="fa fa-check"></i><b>9.49</b> <code>colorize_edge_attrs()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="fcns-caching.html"><a href="fcns-caching.html"><i class="fa fa-check"></i><b>10</b> Functions: Caching Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="fcns-caching.html"><a href="fcns-caching.html#set_cache"><i class="fa fa-check"></i><b>10.1</b> <code>set_cache()</code></a></li>
+<li class="chapter" data-level="10.2" data-path="fcns-caching.html"><a href="fcns-caching.html#get_cache"><i class="fa fa-check"></i><b>10.2</b> <code>get_cache()</code></a></li>
+<li class="chapter" data-level="10.3" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_node_attrs"><i class="fa fa-check"></i><b>10.3</b> <code>cache_node_attrs()</code></a></li>
+<li class="chapter" data-level="10.4" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_edge_attrs"><i class="fa fa-check"></i><b>10.4</b> <code>cache_edge_attrs()</code></a></li>
+<li class="chapter" data-level="10.5" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_node_attrs_ws"><i class="fa fa-check"></i><b>10.5</b> <code>cache_node_attrs_ws()</code></a></li>
+<li class="chapter" data-level="10.6" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_edge_attrs_ws"><i class="fa fa-check"></i><b>10.6</b> <code>cache_edge_attrs_ws()</code></a></li>
+<li class="chapter" data-level="10.7" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_node_count_ws"><i class="fa fa-check"></i><b>10.7</b> <code>cache_node_count_ws()</code></a></li>
+<li class="chapter" data-level="10.8" data-path="fcns-caching.html"><a href="fcns-caching.html#cache_edge_count_ws"><i class="fa fa-check"></i><b>10.8</b> <code>cache_edge_count_ws()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html"><i class="fa fa-check"></i><b>11</b> Functions: Graph Metadata</a><ul>
+<li class="chapter" data-level="11.1" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#set_graph_name"><i class="fa fa-check"></i><b>11.1</b> <code>set_graph_name()</code></a></li>
+<li class="chapter" data-level="11.2" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#set_graph_time"><i class="fa fa-check"></i><b>11.2</b> <code>set_graph_time()</code></a></li>
+<li class="chapter" data-level="11.3" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#set_global_graph_attrs"><i class="fa fa-check"></i><b>11.3</b> <code>set_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.4" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#add_global_graph_attrs"><i class="fa fa-check"></i><b>11.4</b> <code>add_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.5" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#get_global_graph_attrs"><i class="fa fa-check"></i><b>11.5</b> <code>get_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.6" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#delete_global_graph_attrs"><i class="fa fa-check"></i><b>11.6</b> <code>delete_global_graph_attrs()</code></a></li>
+<li class="chapter" data-level="11.7" data-path="fcns-g-metadata.html"><a href="fcns-g-metadata.html#clear_global_graph_attrs"><i class="fa fa-check"></i><b>11.7</b> <code>clear_global_graph_attrs()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="fcns-g-series.html"><a href="fcns-g-series.html"><i class="fa fa-check"></i><b>12</b> Functions: Graph Series</a><ul>
+<li class="chapter" data-level="12.1" data-path="fcns-g-series.html"><a href="fcns-g-series.html#create_series"><i class="fa fa-check"></i><b>12.1</b> <code>create_series()</code></a></li>
+<li class="chapter" data-level="12.2" data-path="fcns-g-series.html"><a href="fcns-g-series.html#add_to_series"><i class="fa fa-check"></i><b>12.2</b> <code>add_to_series()</code></a></li>
+<li class="chapter" data-level="12.3" data-path="fcns-g-series.html"><a href="fcns-g-series.html#remove_from_series"><i class="fa fa-check"></i><b>12.3</b> <code>remove_from_series()</code></a></li>
+<li class="chapter" data-level="12.4" data-path="fcns-g-series.html"><a href="fcns-g-series.html#subset_series"><i class="fa fa-check"></i><b>12.4</b> <code>subset_series()</code></a></li>
+<li class="chapter" data-level="12.5" data-path="fcns-g-series.html"><a href="fcns-g-series.html#get_graph_from_series"><i class="fa fa-check"></i><b>12.5</b> <code>get_graph_from_series()</code></a></li>
+<li class="chapter" data-level="12.6" data-path="fcns-g-series.html"><a href="fcns-g-series.html#trigger_script"><i class="fa fa-check"></i><b>12.6</b> <code>trigger_script()</code></a></li>
+<li class="chapter" data-level="12.7" data-path="fcns-g-series.html"><a href="fcns-g-series.html#series_info"><i class="fa fa-check"></i><b>12.7</b> <code>series_info()</code></a></li>
+<li class="chapter" data-level="12.8" data-path="fcns-g-series.html"><a href="fcns-g-series.html#graph_count"><i class="fa fa-check"></i><b>12.8</b> <code>graph_count()</code></a></li>
+<li class="chapter" data-level="12.9" data-path="fcns-g-series.html"><a href="fcns-g-series.html#render_graph_from_series"><i class="fa fa-check"></i><b>12.9</b> <code>render_graph_from_series()</code></a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">The DiagrammeR Package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="fcns_inspection" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Functions: Inspection</h1>
+<div id="node_info" class="section level2">
+<h2><span class="header-section-number">8.1</span> <code>node_info()</code></h2>
+<h4>
+<em>Get detailed information on nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Obtain a data frame with detailed information on nodes and their interrelationships within a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="edge_info" class="section level2">
+<h2><span class="header-section-number">8.2</span> <code>edge_info()</code></h2>
+<h4>
+<em>Get detailed information on edges</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Obtain a data frame with detailed information on edges and their interrelationships within a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="graph_info" class="section level2">
+<h2><span class="header-section-number">8.3</span> <code>graph_info()</code></h2>
+<h4>
+<em>Get metrics for a graph</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get a data frame with metrics for a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_node_ids" class="section level2">
+<h2><span class="header-section-number">8.4</span> <code>get_node_ids()</code></h2>
+<h4>
+<em>Get a vector of node ID values</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Obtain a vector of node ID values from a graph object or a node data frame. An optional filter by node attribute can limit the set of node ID values returned.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>x</code></strong> either a graph object of class <code>dgr_graph</code> or a node data frame.</p>
+<p><strong><code>conditions</code></strong> an option to use filtering conditions for the retrieval of nodes.</p>
+</div>
+<div id="get_edge_ids" class="section level2">
+<h2><span class="header-section-number">8.5</span> <code>get_edge_ids()</code></h2>
+<h4>
+<em>Get a vector of edge ID values</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Obtain a vector of edge ID values from a graph object. An optional filter by edge attribute can limit the set of edge ID values returned.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>conditions</code></strong> an option to use filtering conditions for the retrieval of edges.</p>
+</div>
+<div id="get_edges" class="section level2">
+<h2><span class="header-section-number">8.6</span> <code>get_edges()</code></h2>
+<h4>
+<em>Get node IDs associated with edges</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Obtain a vector, data frame, or list of node IDs from a graph object or an edge data frame. An optional filter by edge attribute can limit the set of edges returned.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>x</code></strong> either a graph object of class <code>dgr_graph</code> or an edge data frame.</p>
+<p><strong><code>conditions</code></strong> an option to use filtering conditions for the retrieval of edges.</p>
+<p><strong><code>return_type</code></strong> using <code>vector</code> (the default), a vector of character objects representing the edges is provided. With <code>list</code> a list object will be provided that contains vectors of outgoing and incoming node IDs associated with edges. With <code>df</code>, a data frame containing outgoing and incoming node IDs associated with edges.</p>
+<p><strong><code>return_values</code></strong> using <code>id</code> (the default) results in node ID values returned in the edge definitions. With <code>label</code>, the node labels will instead be used to define edges.</p>
+</div>
+<div id="get_predecessors" class="section level2">
+<h2><span class="header-section-number">8.7</span> <code>get_predecessors()</code></h2>
+<h4>
+<em>Get node IDs for predecessor nodes to the specified node</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Provides a vector of node IDs for all nodes that have a connection to the given node.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>node</code></strong> a node ID for the selected node.</p>
+</div>
+<div id="get_successors" class="section level2">
+<h2><span class="header-section-number">8.8</span> <code>get_successors()</code></h2>
+<h4>
+<em>Get node IDs for successor nodes to the specified node</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Provides a vector of node IDs for all nodes that have a connection from the given node.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>node</code></strong> a node ID for the selected node.</p>
+</div>
+<div id="get_node_df" class="section level2">
+<h2><span class="header-section-number">8.9</span> <code>get_node_df()</code></h2>
+<h4>
+<em>Get a node data frame from a graph</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>From a graph, obtain a node data frame with all current node attributes.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_edge_df" class="section level2">
+<h2><span class="header-section-number">8.10</span> <code>get_edge_df()</code></h2>
+<h4>
+<em>Get an edge data frame from a graph</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>From a graph, obtain an edge data frame with all current edge attributes.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="node_count" class="section level2">
+<h2><span class="header-section-number">8.11</span> <code>node_count()</code></h2>
+<h4>
+<em>Get count of all nodes or certain types of nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>From a graph object of class <code>dgr_graph</code>, get a count of nodes in the graph and optionally obtain a count of nodes by their type.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>type</code></strong> either a logical value, where <code>TRUE</code> provides a named vector of node count by type and <code>FALSE</code> (the default) provides a total count, or, a character vector of <code>type</code> values to filter the node count.</p>
+</div>
+<div id="edge_count" class="section level2">
+<h2><span class="header-section-number">8.12</span> <code>edge_count()</code></h2>
+<h4>
+<em>Get count of all edges or edges with distinct relationship types</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>From a graph object of class <code>dgr_graph</code>, get a count of edges in the graph and optionally obtain a count of edges by their relationship type.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>rel</code></strong> either a logical value, where <code>TRUE</code> provides a named vector of edge count by type and <code>FALSE</code> (the default) provides a total count of edges, or, a string corresponding to one or more edge relationship types.</p>
+</div>
+<div id="node_present" class="section level2">
+<h2><span class="header-section-number">8.13</span> <code>node_present()</code></h2>
+<h4>
+<em>Determine whether a specified node is present</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>From a graph object of class <code>dgr_graph</code>, determine whether a specified node is present.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>node</code></strong> a value that may or may not match a node ID in the graph.</p>
+</div>
+<div id="edge_present" class="section level2">
+<h2><span class="header-section-number">8.14</span> <code>edge_present()</code></h2>
+<h4>
+<em>Determine whether a specified edge is present</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>From a graph object of class <code>dgr_graph</code>, determine whether a directed edge (defined by a pair of node IDs extant in the graph) is present.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>from</code></strong> a node ID from which the edge to be queried is outgoing.</p>
+<p><strong><code>to</code></strong> a node ID to which the edge to be queried is incoming.</p>
+</div>
+<div id="is_graph_empty" class="section level2">
+<h2><span class="header-section-number">8.15</span> <code>is_graph_empty()</code></h2>
+<h4>
+<em>Is the graph empty?</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Provides a logical value on whether the graph is empty (i.e., contains no nodes).</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="is_graph_directed" class="section level2">
+<h2><span class="header-section-number">8.16</span> <code>is_graph_directed()</code></h2>
+<h4>
+<em>Is the graph a directed graph?</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Determines whether a graph is set to be directed or not and returns a logical value to that effect.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="is_graph_connected" class="section level2">
+<h2><span class="header-section-number">8.17</span> <code>is_graph_connected()</code></h2>
+<h4>
+<em>Is the graph a connected graph?</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Determines whether a graph is a connected graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="is_property_graph" class="section level2">
+<h2><span class="header-section-number">8.18</span> <code>is_property_graph()</code></h2>
+<h4>
+<em>Is the graph a property graph?</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Provides a logical value on whether the graph is property graph (i.e., all nodes have an assigned <code>type</code> value and all edges have an assigned <code>rel</code> value).</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_degree_in" class="section level2">
+<h2><span class="header-section-number">8.19</span> <code>get_degree_in()</code></h2>
+<h4>
+<em>Get indegree values for all nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the indegree values for all nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>normalized</code></strong> set as <code>FALSE</code> (the default), the the indegree will be provided for each of the nodes (as a count of edges to each node). When set as <code>TRUE</code>, then the result for each node will be divided by the total number of nodes in the graph minus 1.</p>
+</div>
+<div id="get_degree_out" class="section level2">
+<h2><span class="header-section-number">8.20</span> <code>get_degree_out()</code></h2>
+<h4>
+<em>Get outdegree values for all nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the outdegree values for all nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>normalized</code></strong> set as <code>FALSE</code> (the default), the the outdegree will be provided for each of the nodes (as a count of edges outgoing from each node). When set as <code>TRUE</code>, then the result for each node will be divided by the total number of nodes in the graph minus 1.</p>
+</div>
+<div id="get_degree_total" class="section level2">
+<h2><span class="header-section-number">8.21</span> <code>get_degree_total()</code></h2>
+<h4>
+<em>Get total degree values for all nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the total degree values for all nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>normalized</code></strong> set as <code>FALSE</code> (the default), the the total degree will be provided for each of the nodes (as a count of edges to and from each node). When set as <code>TRUE</code>, then the result for each node will be divided by the total number of nodes in the graph minus 1.</p>
+</div>
+<div id="get_degree_histogram" class="section level2">
+<h2><span class="header-section-number">8.22</span> <code>get_degree_histogram()</code></h2>
+<h4>
+<em>Get histogram data for a graph’s degree frequency</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get histogram data for a graph’s degree frequency. The bin width is set to 1 and zero-value degrees are omitted from the output.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_degree_distribution" class="section level2">
+<h2><span class="header-section-number">8.23</span> <code>get_degree_distribution()</code></h2>
+<h4>
+<em>Get degree distribution data for a graph</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get degree distribution data for a graph. Graph degree is represented as a frequency of degree values over all nodes in the graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_graph_diameter" class="section level2">
+<h2><span class="header-section-number">8.24</span> <code>get_graph_diameter()</code></h2>
+<h4>
+<em>Get the graph diameter</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the graph diameter, which is the maximum eccentricity.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_constraint" class="section level2">
+<h2><span class="header-section-number">8.25</span> <code>get_constraint()</code></h2>
+<h4>
+<em>Get constraint scores for one or more graph nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the constraint scores (based on Burt’s Constraint Index) for one or more nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>nodes</code></strong> an optional vector of node IDs to consider for constraint scores. If not supplied, then constraint scores for all nodes in the graph will be calculated.</p>
+</div>
+<div id="get_betweenness" class="section level2">
+<h2><span class="header-section-number">8.26</span> <code>get_betweenness()</code></h2>
+<h4>
+<em>Get betweenness centrality scores</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the betweenness centrality scores for all nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_closeness" class="section level2">
+<h2><span class="header-section-number">8.27</span> <code>get_closeness()</code></h2>
+<h4>
+<em>Get closeness centrality values</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the closeness centrality values for all nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>direction</code></strong> using <code>all</code> (the default), the search will ignore edge direction while traversing through the graph. With <code>out</code>, measurements of paths will be from a node whereas with <code>in</code>, measurements of paths will be to a node.</p>
+</div>
+<div id="get_bridging" class="section level2">
+<h2><span class="header-section-number">8.28</span> <code>get_bridging()</code></h2>
+<h4>
+<em>Get bridging scores</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the bridging scores (based on Valente’s Bridging vertex measure) for all nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_eccentricity" class="section level2">
+<h2><span class="header-section-number">8.29</span> <code>get_eccentricity()</code></h2>
+<h5>
+DESCRIPTION
+</h5>
+<h4>
+<em>Get node eccentricities</em>
+</h4>
+<p>Get a named vector or data frame with node eccentricity values.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>nodes</code></strong> an optional vector of node IDs for filtering the list of nodes present in the graph.</p>
+<p><strong><code>return_type</code></strong> using <code>vector</code> (the default) will provide a named vector of eccentricity values (the node IDs serve as names). With <code>df</code>, a data frame containing node IDs and eccentricity values is provided.</p>
+</div>
+<div id="get_jaccard_similarity" class="section level2">
+<h2><span class="header-section-number">8.30</span> <code>get_jaccard_similarity()</code></h2>
+<h4>
+<em>Get Jaccard similarity coefficient scores</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the Jaccard similiarity coefficient scores for one or more nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>nodes</code></strong> an optional vector of node IDs to consider for Jaccard similarity scores. If not supplied, then similarity scores will be provided for every pair of nodes in the graph.</p>
+<p><strong><code>direction</code></strong> using <code>all</code> (the default), the function will ignore edge direction when determining scores for neighboring nodes. With <code>out</code> and <code>in</code>, edge direction for neighboring nodes will be considered.</p>
+<p><strong><code>round_to</code></strong> the maximum number of decimal places to retain for the Jaccard similarity coefficient scores. The default value is <code>3</code>.</p>
+</div>
+<div id="get_dice_similarity" class="section level2">
+<h2><span class="header-section-number">8.31</span> <code>get_dice_similarity()</code></h2>
+<h4>
+<em>Get Dice similarity coefficient scores</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the Dice similiarity coefficient scores for one or more nodes in a graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>nodes</code></strong> an optional vector of node IDs to consider for Dice similarity scores. If notsupplied, then similarity scores will be provided for every pair of nodes in the graph.</p>
+<p><strong><code>direction</code></strong> using <code>all</code> (the default), the function will ignore edge direction when determining scores for neighboring nodes. With <code>out</code> and <code>in</code>, edge direction for neighboring nodes will be considered.</p>
+<p><strong><code>round_to</code></strong> the maximum number of decimal places to retain for the Dice similarity coefficient scores. The default value is .</p>
+</div>
+<div id="get_periphery" class="section level2">
+<h2><span class="header-section-number">8.32</span> <code>get_periphery()</code></h2>
+<h4>
+<em>Get nodes that form the graph periphery</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get those nodes that are part of the graph periphery (i.e., have the maximum eccentricity in the graph).</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_cmty_walktrap" class="section level2">
+<h2><span class="header-section-number">8.33</span> <code>get_cmty_walktrap()</code></h2>
+<h4>
+<em>Get community membership using the Walktrap method</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>With the Walktrap community finding algorithm, obtain the group membership values for each of the nodes in the graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>steps</code></strong> the number of steps to take for each of the random walks.</p>
+</div>
+<div id="get_cmty_louvain" class="section level2">
+<h2><span class="header-section-number">8.34</span> <code>get_cmty_louvain()</code></h2>
+<h4>
+<em>Get community membership by Louvain optimization</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Through the use of multi-level optimization of a modularity score, obtain the group membership values for each of the nodes in the graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_cmty_l_eigenvector" class="section level2">
+<h2><span class="header-section-number">8.35</span> <code>get_cmty_l_eigenvector()</code></h2>
+<h4>
+<em>Get community membership by leading eigenvector</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Through the calculation of the leading non-negative eigenvector of the modularity matrix of the graph, obtain the group membership values for each of the nodes in the graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_cmty_fast_greedy" class="section level2">
+<h2><span class="header-section-number">8.36</span> <code>get_cmty_fast_greedy()</code></h2>
+<h4>
+<em>Get community membership by modularity optimization</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Through the use of greedy optimization of a modularity score, obtain the group membership values for each of the nodes in the graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_cmty_edge_btwns" class="section level2">
+<h2><span class="header-section-number">8.37</span> <code>get_cmty_edge_btwns()</code></h2>
+<h4>
+<em>Get community membership by edge betweenness</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Using edge betweenness, obtain the group membership values for each of the nodes in the graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_nbrs" class="section level2">
+<h2><span class="header-section-number">8.38</span> <code>get_nbrs()</code></h2>
+<h4>
+<em>Get all neighbors of one or more nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>With one or more nodes, get the set of all neighboring nodes.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>nodes</code></strong> a vector of node ID values.</p>
+</div>
+<div id="get_non_nbrs" class="section level2">
+<h2><span class="header-section-number">8.39</span> <code>get_non_nbrs()</code></h2>
+<h4>
+<em>Get non-neighbors of a node in a graph</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the set of all nodes not neighboring a single graph node.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>node</code></strong> a single-length vector containing a node ID value.</p>
+</div>
+<div id="get_common_neighbors" class="section level2">
+<h2><span class="header-section-number">8.40</span> <code>get_common_neighbors()</code></h2>
+<h4>
+<em>Get all common neighbors between two or more nodes</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>With two or more nodes, get the set of common neighboring nodes.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>nodes</code></strong> a vector of node ID values of length at least 2.</p>
+</div>
+<div id="get_similar_nbrs" class="section level2">
+<h2><span class="header-section-number">8.41</span> <code>get_similar_nbrs()</code></h2>
+<h4>
+<em>Get neighboring nodes based on node attribute similarity</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>With a graph a single node serving as the starting point, get those nodes in a potential neighborhood of nodes (adjacent to the starting node) that have a common or similar (within threshold values) node attribute to the starting node.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>node</code></strong> a single-length vector containing a node ID value.</p>
+<p><strong><code>node_attr</code></strong> the name of the node attribute to use to compare with adjacent nodes.</p>
+<p><strong><code>tol_abs</code></strong> if the values contained in the node attribute <code>node_attr</code> are numeric, one can optionally supply a numeric vector of length 2 that provides a lower and upper numeric bound as criteria for neighboring node similarity to the starting node.</p>
+<p><strong><code>tol_pct</code></strong> if the values contained in the node attribute <code>node_attr</code> are numeric, one can optionally supply a numeric vector of length 2 that specifies lower and upper bounds as negative and positive percentage changes to the value of the starting node. These bounds serve as criteria for neighboring node similarity to the starting node.</p>
+</div>
+<div id="get_paths" class="section level2">
+<h2><span class="header-section-number">8.42</span> <code>get_paths()</code></h2>
+<h4>
+<em>Get paths from a specified node in a directed graph</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Obtain a list of all possible paths from a given node within a directed graph.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+<p><strong><code>from</code></strong> the node from which all paths will be determined.</p>
+<p><strong><code>to</code></strong> the node to which all paths will be determined.</p>
+<p><strong><code>shortest_path</code></strong> an option to return paths that are the shortest in the set of all determined paths.</p>
+<p><strong><code>longest_path</code></strong> an option to return paths that are the longest in the set of all determined paths.</p>
+<p><strong><code>distance</code></strong> a vector of integer values that specify which of the valid paths to return when filtering by distance.</p>
+</div>
+<div id="get_w_connected_cmpts" class="section level2">
+<h2><span class="header-section-number">8.43</span> <code>get_w_connected_cmpts()</code></h2>
+<h4>
+<em>Get all nodes associated with connected components</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Determine which nodes in a graph belong to different weakly connected components (i.e., distinct sets of nodes with traversable paths to and from each node in the set).</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_s_connected_cmpts" class="section level2">
+<h2><span class="header-section-number">8.44</span> <code>get_s_connected_cmpts()</code></h2>
+<h4>
+<em>Get nodes within strongly connected components</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Determine which nodes in a graph belong to different strongly connected components.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+</div>
+<div id="get_articulation_points" class="section level2">
+<h2><span class="header-section-number">8.45</span> <code>get_articulation_points()</code></h2>
+<h4>
+<em>Get articulation points</em>
+</h4>
+<h5>
+DESCRIPTION
+</h5>
+<p>Get the nodes in the graph that are identified as articulation points.</p>
+<h5>
+PARAMETERS
+</h5>
+<p><strong><code>graph</code></strong> a graph object of class <code>dgr_graph</code>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fcns-traversals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fcns-modification.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
